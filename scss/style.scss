@@ -19,13 +19,12 @@ This theme, like WordPress, is licensed under the GPL.
 @import "compass/reset";
 
 // variable
+$background_color: #F5F5F5;
 $text_color: #555;
-$link_color: #06a;
+$link_color: #06A;
 $navigation_color: #CCC;
-$article_title_color: #d63;
-$title_color: #d63;
+$title_color: #D63;
 $border-color: #CCC;
-$border-color-light: #F6F6F6;
 $meta-color: #999;
 
 /* Font Awesome
@@ -67,7 +66,7 @@ body {
     padding: 0;
     border: 0;
     width: 100%;
-	background-color: #ececec;
+	background-color: $background_color;
 	font-family: 'Lato', Verdana,Arial, Meiryo , "Hiragino Kaku Gothic Pro" ,sans-serif;
 	font-size: 0.92em;
 	color: $text_color;
@@ -129,14 +128,6 @@ body {
 	overflow: hidden;
 }
 
-/* Container
---------------------------------------------- */
-#container {
-	-webkit-box-shadow:0 0 5px 0 #DDD;
-	-moz-box-shadow:0 0 5px 0 #DDD;
-	box-shadow:0 0 5px 0 #DDD;
-}
-
 /* Header
 --------------------------------------------- */
 #header {
@@ -150,19 +141,18 @@ body {
 		position: absolute;
 		left: 75px;
 		top: 0;
-		width: 90%;
+		color: $navigation_color;
 	}
 
 	#site-title {
 		margin: 0;
 		padding: 0.8em 0 0 0;
-		color: $text_color;
 		font-size: 2rem;
 		line-height: 1.2;
 
 		a {
-		    color: $text_color;
-		    font-weight: bold;
+			color: $navigation_color;
+			font-weight: bold;
 			text-decoration: none;
 		}
 	}
@@ -171,10 +161,23 @@ body {
 		margin: 3px 0;
 	}
 
+	&.no-title {
+		padding-top: 2em;
+
+		#branding {
+			position: absolute !important;
+			clip: rect( 1px, 1px, 1px, 1px );
+		}
+	}
+
 	&.no-image {
 		#branding {
 			position: static;
 			margin: 0 0 2em 75px;
+		}
+
+		#menu-wrapper {
+			position: relative;
 		}
 	}
 }
@@ -228,7 +231,7 @@ body {
 						a {
 							display: block;
 							padding: 0.8em;
-							background: $border-color-light;
+							background: $background_color;
 							color: $text-color;
 							border-top: dotted 1px $border-color;
 							line-height: 1.2;
@@ -280,23 +283,17 @@ body {
 
 				&.menu-item-has-children {
 					>a:after {
-					   @include font-awesome( "\f0d7", 5px );
+						@include font-awesome( "\f0d7", 5px );
 					}
 				}
 			}
-		}
 
-		li[class*="current-menu"] {
-			> a {
-				font-weight: bold;
+			li[class*="current-menu"] {
+				> a {
+					font-weight: bold;
+				}
 			}
 		}
-	}
-}
-
-.no-image {
-	#menu-wrapper {
-		position: relative;
 	}
 }
 
@@ -315,7 +312,7 @@ body {
 			margin-top: 1em;
 			line-height: 1.4;
 			display: block;
-			background: $border-color-light;
+			background: $background_color;
 			font-size: 90%;
 			padding: 0.4em;
 			color: $meta-color;
@@ -367,7 +364,7 @@ body {
 				margin: 0 0 1em 0;
 				padding: 0 0 0.8em 0;
 				line-height: 1.2;
-				border-bottom: dotted 2px #CCC;
+				border-bottom: dotted 2px $border-color;
 
 				a {
 					color: $title_color;
@@ -423,11 +420,10 @@ body {
 			a {
 				span {
 					color: $link-color;
-					border: solid 1px $link-color;
 					background: #FFF;
 
 					&:hover {
-						background: $border-color-light;
+						background: $background_color;
 					}
 				}
 			}
@@ -444,7 +440,7 @@ body {
 
 		&.more-link {
 			&:hover {
-				background: $border-color-light;
+				background: $background_color;
 			}
 
 			&:before {
@@ -478,12 +474,12 @@ body {
 	h6 {font-size:1.2rem;}
 
 	h2 {
-		border-bottom: dashed 1px #CCC;
+		border-bottom: dashed 1px $border-color;
 		padding-bottom: 0.4em;
 	}
 
 	h3 {
-		border-left: solid 7px #CCC;
+		border-left: solid 7px $border-color;
 		padding-left: 10px;
 	}
 
@@ -536,7 +532,7 @@ body {
 		th {
 			text-align: center;
 			font-weight: bold;
-			background: $border-color-light;
+			background: $background_color;
 
 			a {
 				color: #FFF;
@@ -546,15 +542,15 @@ body {
 	}
 
 	pre {
-		border: dashed 1px #CCC;
+		border: dashed 1px $border-color;
 		padding: 0.8em;
-		background: #EEE;
+		background: $background_color;
 		margin-bottom: 1.6em;
 		line-height: 1.4;
 	}
 
 	code {
-		background: #EEE;
+		background: $background_color;
 	}
 
 	code, kbd, pre, samp {
@@ -698,13 +694,15 @@ body {
 	color: $link-color;
 	@include clearfix;
 
-	a.page-numbers,
-	.current {
-		display: inline-block;
-		background: #FFF;
+	a {
 		color: $link-color;
 		border:solid 1px $link-color;
 		text-decoration:none;
+	}
+
+	a.page-numbers,
+	.current {
+		display: inline-block;
 		text-align: center;
 		padding: 0.2em 0.4em;
 		margin-right: 0.1em;
@@ -712,13 +710,12 @@ body {
 		&.prev,
 		&.next {
 			background: none;
-			color: $link-color;
 			border: none;
 		}
 	}
 
 	a.page-numbers:hover {
-		background: $border-color-light;
+		background: $background_color;
 
 		&.prev,
 		&.next {
@@ -756,7 +753,7 @@ body {
 .widget img {
 	max-width: 100%;
 	height: auto;
-	border: 1px solid #ddd;
+	border: 1px solid $border-color;
 	padding: 1px;
 }
 
@@ -803,7 +800,7 @@ a:hover img {
 
 	.wp-caption {
 		padding: 5px;
-		background: $border-color-light;
+		background: $background_color;
 		max-width: 100%;
 
 		img {
@@ -929,7 +926,7 @@ video {
 
 		li.pingback,
 		li.comment {
-			border-left: 2px solid #DDD;
+			border-left: 2px solid $border-color;
 			clear: both;
 			margin-bottom: 1em;
 			padding: 0 0 0 10px;
@@ -1053,7 +1050,7 @@ video {
 	list-style: none;
 
 	li {
-		border-bottom: dotted 1px #CCC;
+		border-bottom: dotted 1px $border-color;
 		padding: 0;
 		@include clearfix;
 
@@ -1067,12 +1064,14 @@ video {
 			@include clearfix;
 
 			&:hover {
-				background: $border-color-light;
+				background: $background_color;
 			}
 		}
 
 		span {
 			padding: 0 0.5em 0 0;
+			text-indent: -0.2em;
+			margin-left: 0.5em;
 			float: left;
 
 			&:before {
@@ -1084,12 +1083,12 @@ video {
 			display: block;
 			float: right;
 			padding-left: 1.5em;
+			font-style: normal;
 		}
 	}
 }
 
 .search #content {
-
 	h2 {
 		font-size: 1.6rem;
 
@@ -1183,7 +1182,7 @@ video {
 		font-weight: normal;
 		margin: 0 0 10px 0;
 		padding: 0 0 5px 0;
-		border-bottom: solid 3px #CCC;
+		border-bottom: solid 3px $border-color;
 	}
 
 	ul {
@@ -1195,8 +1194,8 @@ video {
 		li {
 			margin-top: -1px;
 			border-top: dotted 1px $border-color;
-			padding: 0.3em 0 0.3em 0.6em;
-			text-indent: -0.3em;
+			padding: 0.3em 0 0.3em 0.5em;
+			text-indent: -0.2em;
 			color: $text-color;
 
 			a {
@@ -1317,7 +1316,7 @@ video {
 /* Footer
 --------------------------------------------- */
 #footer {
-	background: $article_title_color;
+	background: $title_color;
 	color: #FFF;
 
 	.site-title {
@@ -1443,10 +1442,6 @@ video {
 @media screen and (max-width: 800px) {
 
 	#header {
-		#site-title {
-			padding: 5px 0 0 0;
-		}
-
 		p#site-description {
 			display: none;
 		}
@@ -1473,7 +1468,7 @@ video {
 	/* --- Sidebars --- */
 	#leftcolumn aside:last-child {
 		margin-bottom: 30px;
-		border-bottom: 1px solid #ddd;
+		border-bottom: 1px solid $border-color;
 	}
 
 	#rightcolumn aside:last-child {
@@ -1486,7 +1481,7 @@ video {
 @media screen and (max-width: 650px) {
 
 	body {
-	 	font-size: 1.1em;
+	 	font-size: 1.1rem;
 	}
 
 	#wrapper {
@@ -1494,64 +1489,67 @@ video {
 	}
 
 	#header {
+		padding-top: 2.2rem;
+
 		#branding {
-			left: 10px;
-			top: 0;
-			width: 84%;
+			left: 0;
+			top: 2.2rem;
+			padding: 0 10px;
 
 			#site-title {
 				font-size: 1.2rem;
 			}
 		}
+
 		&.no-image {
 			#branding {
-				margin-left: 10px;
+				padding: 1em 10px;
+				margin: 0;
+			}
+
+			#menu-wrapper {
+				position: absolute;
+			}
+		}
+
+		&.no-menu {
+			padding-top: 0;
+
+			#branding {
+				top: 0;
 			}
 		}
 	}
 
 	/* small menu */
 	#menu-wrapper {
-		position: absolute;
-		bottom: 0;
+		top: 0;
 		left: 0;
 		width: 100%;
 		padding: 0;
-
-		&:after {
-			@include clearfix;
-		}
-
-		&.no-image {
-			position: relative;
-		}
 
 		.menu {
 			#small-menu {
 				cursor: pointer;
 				display: block;
-				width: 2em;
-				margin: 0 5px 5px 0;
-				color: $navigation_color;
-				border: solid 1px $navigation_color;
-				border-radius: 4px;
-				text-align: center;
-				float: right;
+				padding: 0.4rem;
+				font-size: 1.4rem;
+				background: $title_color;
+				color: #FFF;
+				text-align: right;
 
 				&:after {
-				    @include font-awesome( "\f0c9" );
-				    font-size: 1.6em;
+					@include font-awesome( "\f0c9", 0.2em, 0 );
 				}
 			}
 
 			ul#menu-primary-items {
 				clear: both;
 				position: absolute;
-				top: 2em;
+				top: 2.2rem;
 				width: 100%;
 				display: none; /* visibility will be toggled with jquery */
-				border-bottom: 1px solid $border-color;
-				background: $border-color-light;
+				background: $title_color;
 
 				li {
 					ul {
@@ -1562,19 +1560,23 @@ video {
 						width: auto;
 
 						li {
+							border-top: dotted 1px $border-color;
+
 							a {
 								border-top: none;
 								padding: 0.4em;
+								background: none;
+								color: #FFF;
 
 								&:hover {
 									background: none;
-									text-decoration: underline;
+									color: $border-color;
 								}
 							}
 
 							&.menu-item-has-children {
 								>a:after {
-								   @include font-awesome( "" );
+									@include font-awesome( "" );
 								}
 							}
 
@@ -1587,28 +1589,36 @@ video {
 
 				> li {
 					float: none;
-					border-bottom: dotted 1px $border-color;
+					border-top: dotted 1px $border-color;
 
 					> a {
 						color: $text-color;
 						border-left: none;
 						line-height: 1.2;
 						padding: 0.4em;
+						color: #FFF !important;
 
 						&:hover {
 							text-decoration: none;
-							background: #FFF;
+							color: $border-color;
 						}
 					}
 
 					&:first-child a {
-						padding-left: 0.8em;
+						padding-left: 0.4em;
 					}
 
 					&.menu-item-has-children {
 						>a:after {
-						   @include font-awesome( "" );
+							@include font-awesome( "" );
 						}
+					}
+				}
+
+				li[class*="current-menu"] {
+					> a {
+						font-weight: normal;
+						color: $border-color;
 					}
 				}
 			}
@@ -1618,7 +1628,7 @@ video {
 			.menu {
 				#small-menu {
 					&:after {
-					    @include font-awesome("\f00d");
+						@include font-awesome( "\f00d", 0.2em, 0 );
 					}
 				}
 			}
@@ -1626,7 +1636,6 @@ video {
 	}
 
 	#content .hentry {
-
 		.entry-header {
 			position: static;
 
@@ -1636,7 +1645,7 @@ video {
 
 			.postdate {
 				position: static;
-				color: $article_title_color;
+				color: $title_color;
 				background: none;
 				padding: 0.5em 0 1em 0;
 				width: 100%;
@@ -1653,7 +1662,6 @@ video {
 			a:hover .postdate {
 				text-decoration: underline;
 			}
-
 		}
 
 		a.thumbnail {
