@@ -1,0 +1,234 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BirdTIPS 1.07 ja\n"
+"Report-Msgid-Bugs-To: http://www.sysbird.jp/wptips\n"
+"POT-Creation-Date: 2012-10-19 19:00+0300\n"
+"PO-Revision-Date: 2015-06-22 16:14+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.5.7\n"
+"Last-Translator: TORIYAMA Yuko <sysbirdj@gmail.com>\n"
+"Language-Team: sysbird <sysbird@gmail.com>\n"
+"Language: ja\n"
+
+#: 404.php:8
+msgid "Error 404 - Not Found"
+msgstr "エラー404 - ページが見つかりませんでした"
+
+#: 404.php:11 sidebar-left.php:5
+msgid "Recent Articles"
+msgstr "最近の記事"
+
+#: archive.php:23
+msgid "Sorry, no posts matched your criteria."
+msgstr "投稿が見つかりません。"
+
+#: comments.php:3
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+"パスワード保護されています。コメントを見るにはパスワードを入力してください。"
+
+#: comments.php:12
+msgid "One Comment"
+msgid_plural "%1$s Comments"
+msgstr[0] "%1$s件のコメント"
+
+#: comments.php:19 comments.php:30
+msgid "Older Comments &raquo;"
+msgstr "古いコメント &raquo;"
+
+#: comments.php:20 comments.php:31
+msgid "&laquo; Newer Comments"
+msgstr "&laquo; 新しいコメント"
+
+#: comments.php:38
+msgid "Name"
+msgstr "お名前"
+
+#: comments.php:38 comments.php:39 comments.php:45
+msgid "(*required)"
+msgstr "(*必須)"
+
+#: comments.php:39
+msgid "Email (will not be published)"
+msgstr "メールアドレス (公開されません)"
+
+#: comments.php:40
+msgid "Website"
+msgstr "ウェブサイト"
+
+#: comments.php:45
+msgid "Comment"
+msgstr "コメント"
+
+#: footer.php:5
+msgid "Proudly powered by WordPress"
+msgstr "Proudly powered by WordPress"
+
+#: footer.php:7
+msgid "Go Top"
+msgstr "ページトップへ"
+
+#: functions.php:15 functions.php:17
+msgid "Widget Area for left sidebar"
+msgstr "ウィジェットエリアサイドバー左"
+
+#: functions.php:25 functions.php:27
+msgid "Widget Area for right sidebar"
+msgstr "ウィジェットエリアサイドバー右"
+
+#: functions.php:51
+msgid "Pingback"
+msgstr "ピンバック"
+
+#: function.php:51
+msgid "(Edit)"
+msgstr "(編集)"
+
+#: functions.php:62
+msgid "Your comment is awaiting moderation."
+msgstr "あなたのコメントは管理者の承認待ちです。"
+
+#: functions.php:97
+msgid "Previous"
+msgstr "前へ"
+
+#: functions.php:98
+msgid "Next"
+msgstr "次へ"
+
+#: function.php:110
+msgid "Category Archives: %s"
+msgstr "「%s」カテゴリーの一覧"
+
+#: function.php:113
+msgid "Tag Archives: %s"
+msgstr "「%s」に関する一覧"
+
+#: function.php:116
+msgid "Daily Archives: %s"
+msgstr "%s の一覧"
+
+#: function.php:119
+msgid "Monthly Archives: %s"
+msgstr "%s の一覧"
+
+#: function.php:119
+msgid "F, Y"
+msgstr "Y年n月"
+
+#: function.php:122
+msgid "Yearly Archives: %s"
+msgstr "%s の一覧"
+
+#: function.php:122
+msgid "Y"
+msgstr "Y年"
+
+#: function.php:125
+msgid "Author Archives: %s"
+msgstr "%s による投稿"
+
+#: functions.php:128
+msgid "Blog Archives"
+msgstr "ブログアーカイブ"
+
+#: functions.php:137
+msgid "M. j, Y"
+msgstr "M. j, Y"
+
+#: functions.php:364
+msgid "Primary Navigation"
+msgstr "グローバルナビゲーション"
+
+#: functions.php:437
+msgid "Page %s"
+msgstr "%sページ目"
+
+#: functions.php:474 index.php:19
+msgid "Continue reading"
+msgstr "続きを読む"
+
+#: functions.php:484
+msgid "Theme Options"
+msgstr "テーマ設定"
+
+#: functions.php:494
+msgid "Text Color"
+msgstr "文字色"
+
+#: functions.php:405
+msgid "Link Color"
+msgstr "リンク色"
+
+#: functions.php:516
+msgid "Article Title Color"
+msgstr "投稿タイトル色"
+
+#: functions.php:527
+msgid "Navigation Text Color"
+msgstr "ナビゲーション文字色"
+
+#: image.php:51 index.php:21 page.php:15 single.php:17
+msgid "Pages:"
+msgstr "ページ:"
+
+#: image.php:57
+msgid "Next Image"
+msgstr "次の画像へ"
+
+#: image.php:58
+msgid "Previous Image"
+msgstr "前の画像へ"
+
+#: index.php:11 index.php:12 search.php:18 search.php:19
+msgid "Permalink to %s"
+msgstr "%sへのリンク"
+
+#: index.php:31
+msgid "No Comments"
+msgstr "コメントをどうぞ"
+
+#: index.php:31
+msgid "1 Comment"
+msgstr "1件のコメント"
+
+#: index.php:31
+msgid "% Comments"
+msgstr "%件のコメント"
+
+#: index.php:31
+msgid "Comments Closed"
+msgstr "コメントは受け付けていません"
+
+#: search.php:8
+msgid "Search Results: %s"
+msgstr "「%s」 の検索結果"
+
+#: search.php:35
+msgid "Sorry, no posts matched &#8216;%s&#8217;"
+msgstr "「%s」 は見つかりませんでした。"
+
+#: searchform.php:3
+msgid "Search..."
+msgstr "検索..."
+
+#: sidebar-right.php:9
+msgid "Meta"
+msgstr "メタ情報"
+
+#. Description of the plugin/theme
+msgid ""
+"BirdTIPS is a flexible three-column blog theme. The theme uses CSS3 media "
+"queries for its responsive layout and is therefore optimized for tablet pcs "
+"and smart phones. Features include the page navigation. You can also choose "
+"the text color, link color, article title color and navigation menu color by "
+"theme options."
+msgstr ""
+"BirdTIPSは、レスポンシブWebデザインで3カラムのWordPressテーマです。PCのほかタ"
+"ブレット、スマートフォンで見ることができます。一覧ページではページネーション"
+"を表示します。テーマカスタマイズで文字色、リンク色、投稿タイトルの色、ナビ"
+"ゲーション文字の色を選択することができます。"
