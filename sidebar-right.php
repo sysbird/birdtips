@@ -1,4 +1,12 @@
-<div id="rightcolumn" class="widget-area" role="complementary">
+<?php
+/**
+ * The Right sidebar template file
+ *
+ * @package WordPress
+ * @subpackage BirdTIPS
+ * @since BirdTIPS 1.0
+ */
+ ?><div id="rightcolumn" class="widget-area" role="complementary">
 	<?php if ( ! dynamic_sidebar( 'widget-area-right' ) ) : ?>
 
 		<aside id="search" class="widget widget_search">

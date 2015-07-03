@@ -11,24 +11,14 @@ get_header(); ?>
 <div id="main">
 	<div id="content">
 
-		<?php the_post(); ?>
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<header class="entry-header">
-				<h1 class="entry-title"><?php the_title(); ?></h1>
-			</header>
+	<?php while ( have_posts() ) : the_post(); ?>
 
-			<div class="entry-content">
-				<?php the_content(); ?>
-				<?php wp_link_pages( array(
-					'before'		=> '<div class="page-link">' . __( 'Pages:', 'birdtips' ),
-					'after'			=> '</div>',
-					'link_before'	=> '<span>',
-					'link_after'	=> '</span>'
-					) ); ?>
-			</div>
-		</article>
+		<?php get_template_part( 'content', get_post_format() ); ?>
+		<?php if ( comments_open() || get_comments_number() ) :
+			comments_template();
+		endif; ?>
 
-		<?php comments_template( '', true ); ?>
+	<?php endwhile; ?>
 
 	</div>
 

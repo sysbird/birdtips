@@ -4,7 +4,7 @@ Theme Name: BirdTIPS
 Theme URI: http://www.sysbird.jp/birdtips/
 Description: BirdTIPS is a flexible three-column blog theme. The theme uses CSS3 media queries for its responsive layout and is therefore optimized for tablet pcs and smart phones. Features include the page navigation. You can also choose the text color, link color, article title color and navigation menu color by theme options.
 Author: Sysbird
-Author URI: http://www.sysbird.jp/wptips/
+Author URI: http://www.sysbird.jp/
 Version: 1.08
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -22,7 +22,7 @@ This theme, like WordPress, is licensed under the GPL.
 $background_color: #F5F5F5;
 $text_color: #555;
 $link_color: #06A;
-$navigation_color: #CCC;
+$navigation_color: #DDD;
 $title_color: #D63;
 $border-color: #CCC;
 $meta-color: #999;
@@ -193,7 +193,7 @@ body {
 	*zoom: 1;
 	&:after {
 	    clear: both;
-			content: "";
+		content: "";
 		display: block;
 	}
 
@@ -533,11 +533,6 @@ body {
 			text-align: center;
 			font-weight: bold;
 			background: $background_color;
-
-			a {
-				color: #FFF;
-				text-decoration: underline;
-			}
 		}
 	}
 
@@ -547,6 +542,8 @@ body {
 		background: $background_color;
 		margin-bottom: 1.6em;
 		line-height: 1.4;
+		white-space: pre-wrap;
+		word-wrap: break-word;
 	}
 
 	code {
@@ -928,7 +925,7 @@ video {
 		li.comment {
 			border-left: 2px solid $border-color;
 			clear: both;
-			margin-bottom: 1em;
+			margin-bottom: 1.6em;
 			padding: 0 0 0 10px;
 			position: relative;
 			list-style: none;
@@ -936,108 +933,108 @@ video {
 			&:after {
 				@include clearfix;
 			}
-		}
-	}
 
-	li {
-		.comment_meta {
-			.author {
-				font-weight: bold;
-				margin: 0 0 5px 5px;
-				color: #000;
+			.comment-author {
+
+				.fn {
+					font-weight: bold;
+					color: #000;
+				}
+
+				img {
+					border: none;
+					margin: 0 10px 10px 0;
+					float: left;
+				}
 			}
 
-			.time {
-				font-size: 85%;
-				margin: 0 0 5px 5px;
+			.comment-meta {
+				font-size: 0.96em;
+				line-height: 1.6;
+				margin-bottom: 1.6em;
+
+				a {
+					border-bottom: none;
+					color: $meta-color;
+				}
 			}
 
-			img {
-				border: none;
-				margin: 0 5px 5px 0;
-				float: left;
+			.comment-awaiting-moderation {
+				font-size: 0.96em;
+				color: $meta-color;
 			}
-		}
 
-		.comment_text {
-			clear: both;
-			margin: 0 0 0.7em 50px;
-
-			p {
-				line-height: 1.4;
+			&.bypostauthor .comment-author .fn {
+				color: $title_color;
 			}
-		}
 
-		em {
-			font-size: 80%;
-			color: $meta-color;
-		}
+			.reply {
+				margin-bottom: 1.6em;
 
-		a.comment-reply-link {
-			&:before {
-			    @include font-awesome( "\f112", 0.2em );
+				a.comment-reply-link {
+					&:before {
+						@include font-awesome( "\f112", 0, 0.2em );
+					}
+				}
 			}
-		}
-
-		&.bypostauthor .comment_meta .author {
-			color: $title_color;
 		}
 	}
 }
 
 /* Forms
 -------------------------------------------------------------- */
-#content #comments {
+#commentform {
+	border: 1px dotted $border-color;
+	padding: 10px 15px 0;
+	margin-bottom: 1.6em;
 
-	#respond  {
-		margin-bottom: 1em;
-		}
+	p {
+		margin-bottom: 0.8em;
+	}
 
-	.commentlist #respond  {
-		margin-left: 60px;
-		}
+	label {
+		padding: 0 0 5px 0;
+		display: block;
+	}
 
-	#commentform {
-		border: 1px dotted $border-color;
-		padding: 10px 15px 0;
+	input:not([id="submit"]) {
+		width: 100%;
+		max-width: 300px;
+		padding: 5px;
+		background: #FFF;
+		border: solid 1px $border-color;
+	}
 
-		label {
-			padding: 0 0 15px 0;
-			display: block;
-		}
+	textarea {
+		width: 100%;
+		height: 100px;
+		padding:5px;
+		background: #FFF;
+		border: solid 1px $border-color;
+	}
 
-		em {
-			display: block;
-			padding: 5px 0;
-		}
+	input#submit {
+		padding: 5px 10px;
+	}
 
-		label input{
-			width: 100%;
-			max-width: 300px;
-			padding: 5px;
-			background: #FFF;
-			border: solid 1px $border-color;
-		}
+	.form-allowed-tags {
+		font-size: 0.9em;
+	}
 
-		textarea{
-			width: 100%;
-			height: 100px;
-			padding:5px;
-			background: #FFF;
-			border: solid 1px $border-color;
-		}
+	.form-allowed-tags code {
+		display: block;
+	}
+}
 
-		input#submit{
-			padding: 5px 10px;
-		}
+.post-password-form {
+	input:not([type="submit"]) {
+		padding: 5px;
+		background: #FFF;
+		border: solid 1px $border-color;
+	}
 
-		.form-allowed-tags {
-			font-size: 0.9em;
-		}
-
-		.form-allowed-tags code {
-			display: block;
-		}
+	input[type="submit"] {
+		padding: 5px 10px;
 	}
 }
 
@@ -1489,12 +1486,10 @@ video {
 	}
 
 	#header {
-		padding-top: 2.2rem;
 
 		#branding {
 			left: 0;
-			top: 2.2rem;
-			padding: 0 10px;
+			padding: 0 2em 0 10px;
 
 			#site-title {
 				font-size: 1.2rem;
@@ -1523,8 +1518,7 @@ video {
 
 	/* small menu */
 	#menu-wrapper {
-		top: 0;
-		left: 0;
+		bottom: 0;
 		width: 100%;
 		padding: 0;
 
@@ -1532,24 +1526,27 @@ video {
 			#small-menu {
 				cursor: pointer;
 				display: block;
-				padding: 0.4rem;
-				font-size: 1.4rem;
-				background: $title_color;
-				color: #FFF;
-				text-align: right;
+				margin: 0 5px 5px 0;
+				padding: 2px 5px;
+				font-size: 24px;
+				color: $navigation_color;
+				text-align: center;
+				border: solid 1px $border-color;
+				border-radius: 4px;
+				float: right;
 
 				&:after {
-					@include font-awesome( "\f0c9", 0.2em, 0 );
+					@include font-awesome( "\f0c9" );
 				}
 			}
 
 			ul#menu-primary-items {
 				clear: both;
 				position: absolute;
-				top: 2.2rem;
+				top: 36px;
 				width: 100%;
 				display: none; /* visibility will be toggled with jquery */
-				background: $title_color;
+				background: $navigation_color;
 
 				li {
 					ul {
@@ -1566,11 +1563,9 @@ video {
 								border-top: none;
 								padding: 0.4em;
 								background: none;
-								color: #FFF;
 
 								&:hover {
 									background: none;
-									color: $border-color;
 								}
 							}
 
@@ -1596,11 +1591,9 @@ video {
 						border-left: none;
 						line-height: 1.2;
 						padding: 0.4em;
-						color: #FFF !important;
 
 						&:hover {
 							text-decoration: none;
-							color: $border-color;
 						}
 					}
 
@@ -1618,7 +1611,6 @@ video {
 				li[class*="current-menu"] {
 					> a {
 						font-weight: normal;
-						color: $border-color;
 					}
 				}
 			}
@@ -1628,7 +1620,7 @@ video {
 			.menu {
 				#small-menu {
 					&:after {
-						@include font-awesome( "\f00d", 0.2em, 0 );
+						@include font-awesome( "\f00d" );
 					}
 				}
 			}

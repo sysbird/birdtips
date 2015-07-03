@@ -1,4 +1,12 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying image attachments
+ *
+ * @package WordPress
+ * @subpackage BirdTIPS
+ * @since BirdTIPS 1.0
+ */
+get_header(); ?>
 
 <div id="main">
 	<div id="content">

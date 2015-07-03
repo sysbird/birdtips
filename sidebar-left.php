@@ -1,4 +1,13 @@
-<div id="leftcolumn" class="widget-area" role="complementary">
+<?php
+/**
+ * The Left sidebar template file
+ *
+ * @package WordPress
+ * @subpackage BirdTIPS
+ * @since BirdTIPS 1.0
+ */
+ ?>
+ <div id="leftcolumn" class="widget-area" role="complementary">
 	<?php if ( ! dynamic_sidebar( 'widget-area-left' ) ) : ?>
 
 		<aside id="archives" class="widget">

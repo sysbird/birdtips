@@ -1,11 +1,17 @@
-<div id="comments">
-<?php if ( post_password_required() ) : ?>
-	<div class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'birdtips' ); ?></div>
-</div>
-<?php return;
-	endif;
+<?php
+/**
+ * The template for displaying comments
+ *
+ * @package WordPress
+ * @subpackage BirdTIPS
+ * @since BirdTIPS 1.0
+ */
+if ( post_password_required() ) {
+	return;
+}
 ?>
 
+<div id="comments">
 <?php if ( have_comments() ) : ?>
 	<h2>
 		<?php
@@ -22,7 +28,12 @@
 	<?php endif;  ?>
 
 		<ol class="commentlist">
-			<?php wp_list_comments( array( 'callback' => 'birdtips_custom_comments' ) ); ?>
+		<?php
+			wp_list_comments( array(
+				'style'			=> 'ol',
+				'avatar_size'	=> 40,
+			) );
+		?>
 		</ol>
 
 	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
@@ -34,18 +45,6 @@
 
 <?php endif; ?>
 
-<?php $myfields =  array(
-'author' => '<label for="author"><em>' . __( 'Name', 'birdtips' ) . ($req ? ' ' .__( '(*required)', 'birdtips' ) : '') .'</em><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="22"' .($req ? ' aria-required="true"' : '') . ' ></label>',
-'email'  => '<label for="email"><em>' . __('Email (will not be published)', 'birdtips') . ($req ? ' ' .__( '(*required)', 'birdtips' ) : '') .'</em><input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' .($req ? ' aria-required="true"' : '') . ' ></label>',
-'url' => '<label for="url"><em>' . __( 'Website', 'birdtips' ) .'</em><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" ></label>',
-); ?>
-
-<?php $myform = array(
-'fields' => apply_filters( 'comment_form_default_fields', $myfields ),
-'comment_field' => '<label for="comment"><em>' . __( 'Comment', 'birdtips' ) . ($req ? ' ' .__( '(*required)', 'birdtips' ) : '') .'</em>' . '<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></label>',
-'comment_notes_before' => '',
-); ?>
-
-<?php comment_form($myform); ?>
+<?php comment_form(); ?>
 
 </div>

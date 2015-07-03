@@ -47,7 +47,7 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) {
 	}
 
 	if( $birdtips_image_tag ){
-		 $birdtips_image_tag = 'class="' . $birdtips_image_tag .'"';
+		 $birdtips_image_tag = ' class="' . $birdtips_image_tag .'"';
 	}
 ?>
 

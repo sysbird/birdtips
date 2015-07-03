@@ -4,7 +4,7 @@ Theme Name: BirdTIPS
 Theme URI: http://www.sysbird.jp/birdtips/
 Description: BirdTIPS is a flexible three-column blog theme. The theme uses CSS3 media queries for its responsive layout and is therefore optimized for tablet pcs and smart phones. Features include the page navigation. You can also choose the text color, link color, article title color and navigation menu color by theme options.
 Author: Sysbird
-Author URI: http://www.sysbird.jp/wptips/
+Author URI: http://www.sysbird.jp/
 Version: 1.08
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -146,14 +146,14 @@ body {
   position: absolute;
   left: 75px;
   top: 0;
-  color: #cccccc; }
+  color: #dddddd; }
 #header #site-title {
   margin: 0;
   padding: 0.8em 0 0 0;
   font-size: 2rem;
   line-height: 1.2; }
   #header #site-title a {
-    color: #cccccc;
+    color: #dddddd;
     font-weight: bold;
     text-decoration: none; }
 #header p#site-description {
@@ -238,8 +238,8 @@ body {
     #menu-wrapper .menu ul#menu-primary-items > li > a {
       display: block;
       padding: 0.4em 0.8em;
-      color: #cccccc;
-      border-left: solid 1px #cccccc;
+      color: #dddddd;
+      border-left: solid 1px #dddddd;
       line-height: 1; }
       #menu-wrapper .menu ul#menu-primary-items > li > a:hover {
         text-decoration: underline; }
@@ -467,15 +467,14 @@ body {
     text-align: center;
     font-weight: bold;
     background: whitesmoke; }
-    #content table th a {
-      color: #FFF;
-      text-decoration: underline; }
 #content pre {
   border: dashed 1px #cccccc;
   padding: 0.8em;
   background: whitesmoke;
   margin-bottom: 1.6em;
-  line-height: 1.4; }
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-wrap: break-word; }
 #content code {
   background: whitesmoke; }
 #content code, #content kbd, #content pre, #content samp {
@@ -754,7 +753,7 @@ video {
     #content #comments ol.commentlist li.comment {
       border-left: 2px solid #cccccc;
       clear: both;
-      margin-bottom: 1em;
+      margin-bottom: 1.6em;
       padding: 0 0 0 10px;
       position: relative;
       list-style: none; }
@@ -762,72 +761,83 @@ video {
       #content #comments ol.commentlist li.comment:after {
         overflow: hidden;
         *zoom: 1; }
-  #content #comments li .comment_meta .author {
-    font-weight: bold;
-    margin: 0 0 5px 5px;
-    color: #000; }
-  #content #comments li .comment_meta .time {
-    font-size: 85%;
-    margin: 0 0 5px 5px; }
-  #content #comments li .comment_meta img {
-    border: none;
-    margin: 0 5px 5px 0;
-    float: left; }
-  #content #comments li .comment_text {
-    clear: both;
-    margin: 0 0 0.7em 50px; }
-    #content #comments li .comment_text p {
-      line-height: 1.4; }
-  #content #comments li em {
-    font-size: 80%;
-    color: #999999; }
-  #content #comments li a.comment-reply-link:before {
-    content: "\f112";
-    display: inline-block;
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    padding-left: 0.2em;
-    padding-right: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; }
-  #content #comments li.bypostauthor .comment_meta .author {
-    color: #dd6633; }
+      #content #comments ol.commentlist li.pingback .comment-author .fn,
+      #content #comments ol.commentlist li.comment .comment-author .fn {
+        font-weight: bold;
+        color: #000; }
+      #content #comments ol.commentlist li.pingback .comment-author img,
+      #content #comments ol.commentlist li.comment .comment-author img {
+        border: none;
+        margin: 0 10px 10px 0;
+        float: left; }
+      #content #comments ol.commentlist li.pingback .comment-meta,
+      #content #comments ol.commentlist li.comment .comment-meta {
+        font-size: 0.96em;
+        line-height: 1.6;
+        margin-bottom: 1.6em; }
+        #content #comments ol.commentlist li.pingback .comment-meta a,
+        #content #comments ol.commentlist li.comment .comment-meta a {
+          border-bottom: none;
+          color: #999999; }
+      #content #comments ol.commentlist li.pingback .comment-awaiting-moderation,
+      #content #comments ol.commentlist li.comment .comment-awaiting-moderation {
+        font-size: 0.96em;
+        color: #999999; }
+      #content #comments ol.commentlist li.pingback.bypostauthor .comment-author .fn,
+      #content #comments ol.commentlist li.comment.bypostauthor .comment-author .fn {
+        color: #dd6633; }
+      #content #comments ol.commentlist li.pingback .reply,
+      #content #comments ol.commentlist li.comment .reply {
+        margin-bottom: 1.6em; }
+        #content #comments ol.commentlist li.pingback .reply a.comment-reply-link:before,
+        #content #comments ol.commentlist li.comment .reply a.comment-reply-link:before {
+          content: "\f112";
+          display: inline-block;
+          font-family: FontAwesome;
+          font-style: normal;
+          font-weight: normal;
+          line-height: 1;
+          padding-left: 0;
+          padding-right: 0.2em;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale; }
 
 /* Forms
 -------------------------------------------------------------- */
-#content #comments #respond {
-  margin-bottom: 1em; }
-#content #comments .commentlist #respond {
-  margin-left: 60px; }
-#content #comments #commentform {
+#commentform {
   border: 1px dotted #cccccc;
-  padding: 10px 15px 0; }
-  #content #comments #commentform label {
-    padding: 0 0 15px 0;
+  padding: 10px 15px 0;
+  margin-bottom: 1.6em; }
+  #commentform p {
+    margin-bottom: 0.8em; }
+  #commentform label {
+    padding: 0 0 5px 0;
     display: block; }
-  #content #comments #commentform em {
-    display: block;
-    padding: 5px 0; }
-  #content #comments #commentform label input {
+  #commentform input:not([id="submit"]) {
     width: 100%;
     max-width: 300px;
     padding: 5px;
     background: #FFF;
     border: solid 1px #cccccc; }
-  #content #comments #commentform textarea {
+  #commentform textarea {
     width: 100%;
     height: 100px;
     padding: 5px;
     background: #FFF;
     border: solid 1px #cccccc; }
-  #content #comments #commentform input#submit {
+  #commentform input#submit {
     padding: 5px 10px; }
-  #content #comments #commentform .form-allowed-tags {
+  #commentform .form-allowed-tags {
     font-size: 0.9em; }
-  #content #comments #commentform .form-allowed-tags code {
+  #commentform .form-allowed-tags code {
     display: block; }
+
+.post-password-form input:not([type="submit"]) {
+  padding: 5px;
+  background: #FFF;
+  border: solid 1px #cccccc; }
+.post-password-form input[type="submit"] {
+  padding: 5px 10px; }
 
 /* Archive
 -------------------------------------------------------------------- */
@@ -1200,38 +1210,37 @@ video {
   #wrapper {
     padding: 10px; }
 
-  #header {
-    padding-top: 2.2rem; }
-    #header #branding {
-      left: 0;
-      top: 2.2rem;
-      padding: 0 10px; }
-      #header #branding #site-title {
-        font-size: 1.2rem; }
-    #header.no-image #branding {
-      padding: 1em 10px;
-      margin: 0; }
-    #header.no-image #menu-wrapper {
-      position: absolute; }
-    #header.no-menu {
-      padding-top: 0; }
-      #header.no-menu #branding {
-        top: 0; }
+  #header #branding {
+    left: 0;
+    padding: 0 2em 0 10px; }
+    #header #branding #site-title {
+      font-size: 1.2rem; }
+  #header.no-image #branding {
+    padding: 1em 10px;
+    margin: 0; }
+  #header.no-image #menu-wrapper {
+    position: absolute; }
+  #header.no-menu {
+    padding-top: 0; }
+    #header.no-menu #branding {
+      top: 0; }
 
   /* small menu */
   #menu-wrapper {
-    top: 0;
-    left: 0;
+    bottom: 0;
     width: 100%;
     padding: 0; }
     #menu-wrapper .menu #small-menu {
       cursor: pointer;
       display: block;
-      padding: 0.4rem;
-      font-size: 1.4rem;
-      background: #dd6633;
-      color: #FFF;
-      text-align: right; }
+      margin: 0 5px 5px 0;
+      padding: 2px 5px;
+      font-size: 24px;
+      color: #dddddd;
+      text-align: center;
+      border: solid 1px #cccccc;
+      border-radius: 4px;
+      float: right; }
       #menu-wrapper .menu #small-menu:after {
         content: "\f0c9";
         display: inline-block;
@@ -1239,18 +1248,18 @@ video {
         font-style: normal;
         font-weight: normal;
         line-height: 1;
-        padding-left: 0.2em;
+        padding-left: 0;
         padding-right: 0;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale; }
     #menu-wrapper .menu ul#menu-primary-items {
       clear: both;
       position: absolute;
-      top: 2.2rem;
+      top: 36px;
       width: 100%;
       display: none;
       /* visibility will be toggled with jquery */
-      background: #dd6633; }
+      background: #dddddd; }
       #menu-wrapper .menu ul#menu-primary-items li ul {
         position: static;
         padding-left: 0.8em;
@@ -1262,11 +1271,9 @@ video {
           #menu-wrapper .menu ul#menu-primary-items li ul li a {
             border-top: none;
             padding: 0.4em;
-            background: none;
-            color: #FFF; }
+            background: none; }
             #menu-wrapper .menu ul#menu-primary-items li ul li a:hover {
-              background: none;
-              color: #cccccc; }
+              background: none; }
           #menu-wrapper .menu ul#menu-primary-items li ul li.menu-item-has-children > a:after {
             content: "";
             display: inline-block;
@@ -1287,11 +1294,9 @@ video {
           color: #555555;
           border-left: none;
           line-height: 1.2;
-          padding: 0.4em;
-          color: #FFF !important; }
+          padding: 0.4em; }
           #menu-wrapper .menu ul#menu-primary-items > li > a:hover {
-            text-decoration: none;
-            color: #cccccc; }
+            text-decoration: none; }
         #menu-wrapper .menu ul#menu-primary-items > li:first-child a {
           padding-left: 0.4em; }
         #menu-wrapper .menu ul#menu-primary-items > li.menu-item-has-children > a:after {
@@ -1306,8 +1311,7 @@ video {
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale; }
       #menu-wrapper .menu ul#menu-primary-items li[class*="current-menu"] > a {
-        font-weight: normal;
-        color: #cccccc; }
+        font-weight: normal; }
     #menu-wrapper.current .menu #small-menu:after {
       content: "\f00d";
       display: inline-block;
@@ -1315,7 +1319,7 @@ video {
       font-style: normal;
       font-weight: normal;
       line-height: 1;
-      padding-left: 0.2em;
+      padding-left: 0;
       padding-right: 0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale; }
