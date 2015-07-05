@@ -1,4 +1,3 @@
-msgid ""
 msgstr ""
 "Project-Id-Version: BirdTIPS 1.07 ja\n"
 "Report-Msgid-Bugs-To: http://www.sysbird.jp/wptips\n"
@@ -38,9 +37,21 @@ msgstr "古いコメント &raquo;"
 msgid "&laquo; Newer Comments"
 msgstr "&laquo; 新しいコメント"
 
-#: footer.php:5
+#: footer.php:26
+msgid "Copyright &copy; %s All Rights Reserved."
+msgstr "Copyright &copy; %s All Rights Reserved."
+
+#: footer.php:31
 msgid "Proudly powered by WordPress"
 msgstr "Proudly powered by WordPress"
+
+#: footer.php:32
+msgid "BirdSITE theme by %sSysbird%s"
+msgstr "BirdSITE theme by %sSysbird%s"
+
+#: footer.php:37
+msgid "Go Top"
+msgstr "Topへ"
 
 #: footer.php:7
 msgid "Go Top"
@@ -153,10 +164,6 @@ msgstr "コピーライトを表示"
 #: functions.php:454
 msgid "Display Credit"
 msgstr "クレジットを表示"
-
-#: header.php:78
-msgid "Menu"
-msgstr "メニュー"
 
 #: image.php:51 index.php:21 page.php:15 single.php:17
 msgid "Pages:"

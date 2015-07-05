@@ -72,11 +72,11 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) {
 		<?php if ( $birdtips_has_nav_menu ) : ?>
 			<nav id="menu-wrapper">
 				<?php wp_nav_menu( array( 'theme_location'	=> 'primary',
-										'container_class'	=> 'menu',
-										'menu_class'		=> '',
-										'menu_id'			=> 'menu-primary-items',
-										'items_wrap'		=> '<div id="small-menu">' .__( 'Menu', 'birdtips') .'</div><ul id="%1$s" class="%2$s">%3$s</ul>',
-										'fallback_cb'		=> '' ) ); ?>
+								'container_class'	=> 'menu',
+								'menu_class'		=> '',
+								'menu_id'		=> 'menu-primary-items',
+								'items_wrap'		=> '<div id="small-menu"></div><ul id="%1$s" class="%2$s">%3$s</ul>',
+								'fallback_cb'		=> '' ) ); ?>
 			</nav>
 		<?php endif; ?>
 

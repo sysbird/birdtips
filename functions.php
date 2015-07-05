@@ -20,21 +20,21 @@ function birdtips_widgets_init() {
 		register_sidebar( array (
 			'name'			=> __( 'Widget Area for left sidebar', 'birdtips' ),
 			'id'			=> 'widget-area-left',
-			'description'	=> __( 'Widget Area for left sidebar', 'birdtips' ),
+			'description'		=> __( 'Widget Area for left sidebar', 'birdtips' ),
 			'before_widget'	=> '<div class="widget">',
-			'after_widget'	=> '</div>',
-			'before_title'	=> '<h3>',
-			'after_title'	=> '</h3>',
+			'after_widget'		=> '</div>',
+			'before_title'		=> '<h3>',
+			'after_title'		=> '</h3>',
 			) );
 
 		register_sidebar( array (
 			'name'			=> __( 'Widget Area for right sidebar', 'birdtips' ),
 			'id'			=> 'widget-area-right',
-			'description'	=> __( 'Widget Area for right sidebar', 'birdtips' ),
+			'description'		=> __( 'Widget Area for right sidebar', 'birdtips' ),
 			'before_widget'	=> '<div class="widget">',
-			'after_widget'	=> '</div>',
-			'before_title'	=> '<h3>',
-			'after_title'	=> '</h3>',
+			'after_widget'		=> '</div>',
+			'before_title'		=> '<h3>',
+			'after_title'		=> '</h3>',
 			) );
 	}
 }
@@ -105,6 +105,31 @@ function birdtips_the_pagenation() {
 			) );
 		echo '</div>' ."\n";
 	}
+}
+
+//////////////////////////////////////////////////////
+// Copyright Year
+function birdtips_get_copyright_year() {
+
+	$birdtips_copyright_year = date( "Y" );
+
+	$birdtips_first_year = $birdtips_copyright_year;
+	$args = array(
+		'numberposts'	=> 1,
+		'orderby'	=> 'post_date',
+		'order'		=> 'ASC',
+	);
+	$posts = get_posts( $args );
+
+	foreach ( $posts as $post ) {
+		$birdtips_first_year = mysql2date( 'Y', $post->post_date, true );
+	}
+
+	if( $birdtips_copyright_year <> $birdtips_first_year ){
+		$birdtips_copyright_year = $birdtips_first_year .' - ' .$birdtips_copyright_year;
+	}
+
+	return $birdtips_copyright_year;
 }
 
 //////////////////////////////////////////
@@ -222,15 +247,6 @@ function birdtips_header_style() {
 	}
 
 	@media screen and (max-width: 650px) {
-		#menu-wrapper .menu #small-menu,
-		#menu-wrapper .menu ul#menu-primary-items {
-			background: <?php echo $article_title_color; ?>;
-		}
-
-		#menu-wrapper .menu ul#menu-primary-items li ul li a {
-			color: #FFF;
-		}
-
 		#content .hentry .entry-header .postdate {
 			color: <?php echo $article_title_color; ?>;
 		}
