@@ -20,67 +20,25 @@ function birdtips_widgets_init() {
 		register_sidebar( array (
 			'name'			=> __( 'Widget Area for left sidebar', 'birdtips' ),
 			'id'			=> 'widget-area-left',
-			'description'		=> __( 'Widget Area for left sidebar', 'birdtips' ),
+			'description'	=> __( 'Widget Area for left sidebar', 'birdtips' ),
 			'before_widget'	=> '<div class="widget">',
-			'after_widget'		=> '</div>',
-			'before_title'		=> '<h3>',
-			'after_title'		=> '</h3>',
+			'after_widget'	=> '</div>',
+			'before_title'	=> '<h3>',
+			'after_title'	=> '</h3>',
 			) );
 
 		register_sidebar( array (
 			'name'			=> __( 'Widget Area for right sidebar', 'birdtips' ),
 			'id'			=> 'widget-area-right',
-			'description'		=> __( 'Widget Area for right sidebar', 'birdtips' ),
+			'description'	=> __( 'Widget Area for right sidebar', 'birdtips' ),
 			'before_widget'	=> '<div class="widget">',
-			'after_widget'		=> '</div>',
-			'before_title'		=> '<h3>',
-			'after_title'		=> '</h3>',
+			'after_widget'	=> '</div>',
+			'before_title'	=> '<h3>',
+			'after_title'	=> '</h3>',
 			) );
 	}
 }
 add_action( 'widgets_init', 'birdtips_widgets_init' );
-
-//////////////////////////////////////////
-// SinglePage Comment callback
-function birdtips_custom_comments( $comment, $args, $depth ) {
-
-	$GLOBALS['comment'] = $comment;
-
-?>
-	<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-
-	<?php if( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ):
-		$birstips_url = get_comment_author_url();
-		$birstips_author = get_comment_author();
-	 ?>
-
-		<div class="posted"><strong><?php _e( 'Pingback', 'birdtips' ); ?> : </strong><a href="<?php echo $birstips_url; ?>" target="_blank"><?php echo $birstips_author ?></a><?php edit_comment_link( __('(Edit)', 'birdtips'), ' ' ); ?></div>
-
-	<?php else: ?>
-
-		<div class="comment_meta">
-			<?php echo get_avatar( $comment, 40 ); ?>
-			<span class="author"><?php comment_author(); ?></span>
-			<span class="time"><?php echo get_comment_time(get_option( 'date_format' ) .' ' .get_option( 'time_format' ) ); ?></span>
-			<span class="reply"><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?></span>
-		</div>
-		<?php if ( $comment->comment_approved == '0' ) : ?>
-			<em><?php _e( 'Your comment is awaiting moderation.', 'birdtips' ); ?></em><br>
-		<?php endif; ?>
-
-		<div class="comment_text">
-			<?php comment_text(); ?>
-
-			<?php $birdtips_web = get_comment_author_url(); ?>
-			<?php if( !empty( $birdtips_web ) ): ?>
-				<p class="web"><a href="<?php echo $birdtips_web; ?>" target="_blank"><?php echo $birdtips_web; ?></a></p>
-			<?php endif; ?>
-		</div>
-
-	<?php endif; ?>
-<?php
-	// no "</li>" conform WORDPRESS
-}
 
 //////////////////////////////////////////////////////
 // Pagenation
@@ -116,8 +74,8 @@ function birdtips_get_copyright_year() {
 	$birdtips_first_year = $birdtips_copyright_year;
 	$args = array(
 		'numberposts'	=> 1,
-		'orderby'	=> 'post_date',
-		'order'		=> 'ASC',
+		'orderby'		=> 'post_date',
+		'order'			=> 'ASC',
 	);
 	$posts = get_posts( $args );
 
@@ -192,8 +150,8 @@ function birdtips_header_style() {
 	if ( 'blank' == $header_textcolor ) { ?>
 	<?php } else { ?>
 		#header h1 a,
-		#header #site-title a,
-		#header p {
+		#header #branding #site-title a,
+		#header #branding #site-description {
 			color: #<?php echo $header_textcolor; ?>;
 		}
 		<?php } ?>
@@ -201,8 +159,6 @@ function birdtips_header_style() {
 	body,
 	.archive #content ul li a,
 	.error404 #content ul li a,
-	#menu-wrapper .menu ul#menu-primary-items li ul li a,
-	.widget ul li,
 	.widget ul li a {
 		color: <?php echo $text_color; ?>;
 	}
@@ -232,7 +188,8 @@ function birdtips_header_style() {
 
 	#content .hentry .entry-header .entry-title,
 	#content .hentry .entry-header .entry-title a,
-	#content #comments li.bypostauthor .comment_meta .author {
+	#content #comments ol.commentlist li.pingback.bypostauthor .comment-author .fn,
+	#content #comments ol.commentlist li.comment.bypostauthor .comment-author .fn {
 		color: <?php echo $article_title_color; ?>;
 	}
 
@@ -241,7 +198,7 @@ function birdtips_header_style() {
 		background: <?php echo $article_title_color; ?>;
 	}
 
-	#menu-wrapper .menu ul li a {
+	#menu-wrapper .menu ul#menu-primary-items > li > a {
 		color: <?php echo $navigation_color; ?>;
 		border-left-color: <?php echo $navigation_color; ?>;
 	}
@@ -406,7 +363,7 @@ function birdtips_excerpt_more() {
 
 	return ' <a href="'. esc_url( get_permalink() ) . '" class="more-link">' . __( 'Continue reading', 'birdtips' ) .'</a>';
 }
-add_filter(' excerpt_more', 'birdtips_excerpt_more' );
+add_filter('excerpt_more', 'birdtips_excerpt_more' );
 
 //////////////////////////////////////////////////////
 // Theme Customizer
@@ -468,7 +425,7 @@ function birdtips_customize($wp_customize) {
 
 	// Display Copyright
 	$wp_customize->add_setting( 'birdtips_copyright', array(
-		'default'		=> true,
+		'default'			=> true,
 		'sanitize_callback'	=> 'birdtips_sanitize_checkbox',
 	) );
 
@@ -481,7 +438,7 @@ function birdtips_customize($wp_customize) {
 
 	// Display Credit
 	$wp_customize->add_setting( 'birdtips_credit', array(
-		'default'		=> true,
+		'default'			=> true,
 		'sanitize_callback'	=> 'birdtips_sanitize_checkbox',
 	) );
 

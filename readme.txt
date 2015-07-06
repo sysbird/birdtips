@@ -28,12 +28,12 @@ Header Images are photo by theme author and are released under GPL license.
 
 == Author ==
 The theme built by TORIYAMA Yuko at sysbird.
-http://www.sysbird.jp/
+http://www.sysbird.jp
 
 
 == Changelog ==
 v1.08
-2015-07-01
+2015-07-06
 * fix WordPress Version 4.2.
 * add content template
 * add css/ja.css for Japanese locale.
@@ -43,7 +43,6 @@ v1.08
 * delete wp_list_comments callback.
 * change comment form to the default style.
 * change Author URI.
-
 
 v1.07
 2014-08-16

@@ -1,16 +1,5 @@
 jQuery(function(){
 
-    // Navigation dropdown menu for mobile
-    jQuery( '#menu-primary-items .menu-item-has-children' ).each(function(){
-        jQuery( this ).append( '<span></span>' );
-    });
-
-    jQuery( '#menu-primary-items .menu-item-has-children span' ).click( function(){
-        jQuery( this ).parent().children( 'ul' ).slideToggle( 'normal', function(){
-            jQuery( this ).parent().toggleClass( 'open' );
-        });
-    });
-
     // Navigation for mobile
     jQuery("#small-menu").click(function(){
         jQuery('#menu-wrapper').toggleClass('current');

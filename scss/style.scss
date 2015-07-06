@@ -4,7 +4,7 @@ Theme Name: BirdTIPS
 Theme URI: http://www.sysbird.jp/birdtips/
 Description: BirdTIPS is a flexible three-column blog theme. The theme uses CSS3 media queries for its responsive layout and is therefore optimized for tablet pcs and smart phones. Features include the page navigation. You can also choose the text color, link color, article title color and navigation menu color by theme options.
 Author: Sysbird
-Author URI: http://www.sysbird.jp/
+Author URI: http://www.sysbird.jp
 Version: 1.08
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -261,17 +261,6 @@ body {
 				}
 
 				&.menu-item-has-children {
-
-					span {
-						display: none;
-					}
-
-					&.open {
-						> ul {
-							display: none;
-						}
-					}
-
 					>a:after {
 						@include font-awesome( "\f0da", 5px );
 					}
@@ -456,10 +445,6 @@ body {
 			}
 
 		&.more-link {
-			&:hover {
-				background: $background_color;
-			}
-
 			&:before {
 			    @include font-awesome("\f061", 0, 0.4em );
 			}
@@ -1256,7 +1241,6 @@ form {
 			border-top: dotted 1px $border-color;
 			padding: 0.3em 0 0.3em 0.6em;
 			text-indent: -0.3em;
-			color: $text-color;
 
 			a {
 				color: $text-color;
@@ -1587,31 +1571,6 @@ form {
 						> a {
 							padding-right: 2.2em;
 						}
-
-						span {
-							display: block;
-							width: 2em;
-							height: 2em;
-							position: absolute;
-							top: 0;
-							right: 0;
-							cursor: pointer;
-
-							&:before {
-								@include font-awesome("\f067", 0.4em, 0);
-								padding-top: 0.5em;
-							}
-						}
-
-						ul {
-							display: none;
-						}
-
-						&.open {
-							> span:before {
-								@include font-awesome("\f068", 0.4em, 0);
-							}
-						}
 					}
 
 					ul {
@@ -1652,7 +1611,7 @@ form {
 					border-top: dotted 1px $border-color;
 
 					> a {
-						color: $text-color;
+						color: $text-color !important;
 						border-left: none;
 						line-height: 1.2;
 						padding: 0.4em;
@@ -1738,7 +1697,6 @@ form {
 }
 
 @media screen and (min-width: 650px) {
-
 	ul#menu-primary-items {
 		/* ensure .menu is visible on desktop version */
 		display: block !important;

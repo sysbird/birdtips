@@ -1,3 +1,12 @@
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * @package WordPress
+ * @subpackage BirdTIPS
+ * @since BirdTIPS 1.0
+ */
+?>
 	</div>
 
 	<footer id="footer">
@@ -11,7 +20,7 @@
 			<?php if( get_theme_mod( 'birdtips_credit', true ) ): ?>
 				<br>
 				<span class="generator"><a href="<?php echo esc_url('http://wordpress.org/'); ?>" target="_blank"><?php _e( 'Proudly powered by WordPress', 'birdtips' ); ?></a></span>
-			<?php printf(__( 'BirdTIPS theme by %sSysbird%s', 'birdtips' ), '<a href="' .esc_url('https://www.sysbird.jp') .'" target="_blank">', '</a>' ); ?>
+				<?php printf(__( 'BirdTIPS theme by %sSysbird%s', 'birdtips' ), '<a href="' .esc_url('https://www.sysbird.jp') .'" target="_blank">', '</a>' ); ?>
 			<?php endif; ?>
 		</div>
 
