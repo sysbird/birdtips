@@ -1067,6 +1067,7 @@ form {
 		height: 30px;
 		line-height: 1;
 		border: solid 1px $border-color;
+		border-radius: 0;
 	}
 
 	#searchsubmit {
@@ -1495,7 +1496,7 @@ form {
 @media screen and (max-width: 650px) {
 
 	body {
-	 	font-size: 1.1rem;
+		font-size: 1.04rem;
 	}
 
 	#wrapper {
@@ -1543,12 +1544,9 @@ form {
 				cursor: pointer;
 				display: block;
 				margin: 0 5px 5px 0;
-				padding: 2px 5px;
 				font-size: 24px;
 				color: $navigation_color;
 				text-align: center;
-				border: solid 1px $border-color;
-				border-radius: 4px;
 				float: right;
 
 				&:after {
