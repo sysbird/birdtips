@@ -314,30 +314,6 @@ function birdtips_setup() {
 add_action( 'after_setup_theme', 'birdtips_setup' );
 
 //////////////////////////////////////////////////////
-// Document Title
-function birdtips_title( $title ) {
-	global $page, $paged;
-
-	$title .= get_bloginfo( 'name' );
-	$site_description = get_bloginfo( 'description', 'display' );
-
-	if ( $site_description && ( is_home() || is_front_page() ) )
-		$title .= " | $site_description";
-
-	if ( $paged >= 2 || $page >= 2 )
-		$title .= ' | ' . sprintf( __( 'Page %s', 'birdtips' ), max( $paged, $page ) );
-
-	return $title;
-}
-add_filter( 'wp_title', 'birdtips_title' );
-
-//////////////////////////////////////////////////////
-// Title Tag Backwards Compatibility
-function birdtips_slug_render_title() {
-	?><title><?php wp_title( '|', true, 'right' ); ?></title><?php
-}
-
-//////////////////////////////////////////////////////
 // Enqueue Acripts
 function birdtips_scripts() {
 

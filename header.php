@@ -11,21 +11,11 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" >
 <meta name="viewport" content="width=device-width" >
-<?php
-if ( ! function_exists( '_wp_render_title_tag' ) ) {
-	add_action( 'wp_head', 'birdtips_slug_render_title' );
-}
-?>
 <link rel="profile" href="http://gmpg.org/xfn/11" >
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" >
 <!--[if lt IE 9]>
 <script src="<?php echo get_template_directory_uri() ?>/js/html5shiv.js" type="text/javascript"></script>
 <![endif]-->
-<?php
-if ( ! function_exists( '_wp_render_title_tag' ) ) {
-	add_action( 'wp_head', 'birdtips_slug_render_title' );
-}
-?>
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
