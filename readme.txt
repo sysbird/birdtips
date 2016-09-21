@@ -32,6 +32,10 @@ http://www.sysbird.jp
 
 
 == Changelog ==
+v1.09
+2019-09-20
+Working!!
+
 v1.08
 2015-07-06
 * fix WordPress Version 4.2.

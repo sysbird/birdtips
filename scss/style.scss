@@ -1,14 +1,14 @@
 @charset "utf-8";
 /*
 Theme Name: BirdTIPS
-Theme URI: http://www.sysbird.jp/birdtips/
+Theme URI: http://www.sysbird.jp/birdtips/theme/
 Description: BirdTIPS is a flexible three-column blog theme. The theme uses CSS3 media queries for its responsive layout and is therefore optimized for tablet pcs and smart phones. Features include the page navigation. You can also choose the text color, link color, article title color and navigation menu color by theme options.
 Author: Sysbird
 Author URI: http://www.sysbird.jp
-Version: 1.08
+Version: 1.09
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: white, three-columns, right-sidebar, fluid-layout, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-image-header, featured-images, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+Tags: three-columns, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-image-header, featured-images, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog
 Text Domain: birdtips
 
 This theme, like WordPress, is licensed under the GPL.
@@ -688,32 +688,35 @@ body {
 
 /* Pagenation
 -------------------------------------------------------------------- */
-#content .tablenav {
+#content .pagination {
 	clear: both;
 	color: $link-color;
 	@include clearfix;
 
-	a {
+	a,
+	span {
+		display: inline-block;
 		color: $link-color;
 		border:solid 1px $link-color;
-		text-decoration:none;
-	}
-
-	a.page-numbers,
-	.current {
-		display: inline-block;
 		text-align: center;
-		padding: 0.2em 0.4em;
-		margin-right: 0.1em;
+		padding: 0.4em 0.6em;
+		margin-bottom: 0.4em;
+		text-decoration:none;
 
 		&.prev,
 		&.next {
-			background: none;
+			font-weight: bold;
 			border: none;
+			padding: 0.4em 0;
+		}
+
+		&.dots {
+			border: none;
+			padding: 0.4em;
 		}
 	}
 
-	a.page-numbers:hover {
+	a:hover {
 		background: $background_color;
 
 		&.prev,
@@ -721,29 +724,51 @@ body {
 			background: none;
 			text-decoration: underline;
 		}
-	}
+			}
 
-	.current {
+	span.current {
+		font-weight: bold;
 		color: #FFF;
 		background: $link-color;
-		border:solid 1px $link-color;
 	}
 
-	a.next {
-		padding-right: 0;
-
-		&:after {
-		@include font-awesome( "\f061", 0.4em );
-		}
-	}
-
-	a.prev {
-		padding-left: 0;
-
-		&:before {
+	a.page-numbers.prev:before {
 		@include font-awesome( "\f060", 0, 0.4em );
-		}
 	}
+
+	a.page-numbers.next:after {
+		@include font-awesome( "\f061", 0.4em, 0 );
+	}
+}
+
+/* Accessibility
+-------------------------------------------------------------- */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
 }
 
 /* Images
@@ -1051,15 +1076,7 @@ form {
 #searchform {
 	width: 100%;
 	height: 30px;
-	border-radius: 0;
 	position: relative;
-
-	label {
-		display: block;
-		font-size: 0;
-		overflow: hidden;
-		text-indent: -9999px;
-	}
 
 	#s {
 		width: 80%;
@@ -1067,7 +1084,6 @@ form {
 		height: 30px;
 		line-height: 1;
 		border: solid 1px $border-color;
-		border-radius: 0;
 	}
 
 	#searchsubmit {
@@ -1081,9 +1097,12 @@ form {
 		margin: 0;
 		background: $border-color;
 		color: #FFF;
-		border-radius: 0;
 		-webkit-appearance: button;
-		@include font-awesome( "\f005", 0, 0.2em );
+
+		&:before {
+			font-size: 1.4rem;
+			@include font-awesome( "\f002" );
+		}
 	}
 }
 
