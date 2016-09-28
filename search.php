@@ -21,7 +21,7 @@ get_header(); ?>
 					<?php get_template_part( 'content', get_post_format() ); ?>
 				<?php endwhile; ?>
 
-				<?php birdtips_the_pagenation(); ?>
+				<?php the_posts_pagination( array( 'mid_size' => 3 ) ); ?>
 			<?php else: ?>
 				<p><?php printf(__('Sorry, no posts matched &#8216;%s&#8217;', 'birdtips'), esc_html($s) ); ?>
 			<?php endif; ?>

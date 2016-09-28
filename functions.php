@@ -41,31 +41,6 @@ function birdtips_widgets_init() {
 add_action( 'widgets_init', 'birdtips_widgets_init' );
 
 //////////////////////////////////////////////////////
-// Pagenation
-function birdtips_the_pagenation() {
-
-	global $wp_query, $paged;
-	$birdtips_big = 999999999;
-
-	$birdtips_pages = $wp_query -> max_num_pages;
-	if ( empty( $paged ) ) $paged = 1;
-
-	if ( 1 < $birdtips_pages ) {
-		echo '	<div class="tablenav">' ."\n";
-		echo paginate_links( array(
-			'base'		=> str_replace( $birdtips_big, '%#%', get_pagenum_link( $birdtips_big ) ),
-			'format'	=> '?paged=%#%',
-			'current'	=> max( 1, get_query_var( 'paged' ) ),
-			'total'		=> $wp_query -> max_num_pages,
-			'mid_size'	=> 3,
-			'prev_text'	=> __( 'Previous', 'birdtips' ),
-			'next_text'	=> __( 'Next', 'birdtips' )
-			) );
-		echo '</div>' ."\n";
-	}
-}
-
-//////////////////////////////////////////////////////
 // Copyright Year
 function birdtips_get_copyright_year() {
 
@@ -90,33 +65,6 @@ function birdtips_get_copyright_year() {
 	return $birdtips_copyright_year;
 }
 
-//////////////////////////////////////////
-// Archive PageTitle
-function birdtips_the_archivetitle() {
-
-	if(is_category()) {
-		printf( __( 'Category Archives: %s', 'birdtips'), single_cat_title('', false ) );
-	}
-	elseif( is_tag() ) {
-		printf( __( 'Tag Archives: %s', 'birdtips' ), single_tag_title( '', false ) );
-	}
-	elseif (is_day()) {
-		printf( __('Daily Archives: %s', 'birdtips'), get_post_time( get_option('date_format' ) ) );
-	}
-	elseif ( is_month() ) {
-		printf( __( 'Monthly Archives: %s', 'birdtips'), get_post_time( __( 'F, Y', 'birdtips' ) ) );
-	}
-	elseif (is_year()) {
-		printf( __( 'Yearly Archives: %s', 'birdtips' ), get_post_time( __( 'Y', 'birdtips' ) ) );
-	}
-	elseif ( is_author() ) {
-		printf( __('Author Archives: %s', 'birdtips' ), get_the_author_meta( 'display_name', get_query_var( 'author' ) ) );
-	}
-	elseif ( isset($_GET['paged'] ) && !empty( $_GET['paged'] ) ) {
-		_e( 'Blog Archives', 'birdtips' );
-	}
-}
-
 //////////////////////////////////////////////////////
 // Date
 function birdtips_the_date() {
@@ -132,95 +80,8 @@ function birdtips_the_date() {
 }
 
 //////////////////////////////////////////////////////
-// Header Style
-function birdtips_header_style() {
-
-?>
-
-<style type="text/css">
-
-<?php
-	//Theme Option
-	$header_textcolor = get_header_textcolor();
-	$text_color = esc_attr( get_theme_mod( 'birdtips_text_color', '#555' ) );
-	$link_color = esc_attr( get_theme_mod( 'birdtips_link_color', '#06A' ) );
-	$article_title_color = esc_attr( get_theme_mod( 'birdtips_article_title_color', '#D63' ) );
-	$navigation_color = esc_attr( get_theme_mod( 'birdtips_navigation_color', '#DDD' ) );
-
-	if ( 'blank' == $header_textcolor ) { ?>
-	<?php } else { ?>
-		#header h1 a,
-		#header #branding #site-title a,
-		#header #branding #site-description {
-			color: #<?php echo $header_textcolor; ?>;
-		}
-		<?php } ?>
-
-	body,
-	.archive #content ul li a,
-	.error404 #content ul li a,
-	.widget ul li a {
-		color: <?php echo $text_color; ?>;
-	}
-
-	a,
-	#content .hentry.sticky .entry-header .entry-title a,
-	#content .tablenav a,
-	#content .hentry .page-link,
-	#content .hentry .page-link a span {
-		color: <?php echo $link_color; ?>;
-	}
-
-	#content .hentry.sticky .entry-header .postdate,
-	#content .tablenav .current,
-	#content .hentry .page-link span,
-	.widget #wp-calendar tbody td a {
-		background: <?php echo $link_color; ?>;
-	}
-
-	#content a,
-	#content a:hover,
-	#content .hentry .page-link span,
-	#content .tablenav a,
-	#content .tablenav .current {
-		border-color: <?php echo $link_color; ?>;
-	}
-
-	#content .hentry .entry-header .entry-title,
-	#content .hentry .entry-header .entry-title a,
-	#content #comments ol.commentlist li.pingback.bypostauthor .comment-author .fn,
-	#content #comments ol.commentlist li.comment.bypostauthor .comment-author .fn {
-		color: <?php echo $article_title_color; ?>;
-	}
-
-	#content .hentry .entry-header .postdate,
-	#footer {
-		background: <?php echo $article_title_color; ?>;
-	}
-
-	#menu-wrapper .menu ul#menu-primary-items > li > a {
-		color: <?php echo $navigation_color; ?>;
-		border-left-color: <?php echo $navigation_color; ?>;
-	}
-
-	@media screen and (max-width: 650px) {
-		#content .hentry .entry-header .postdate {
-			color: <?php echo $article_title_color; ?>;
-		}
-
-		#content .hentry.sticky .entry-header .postdate {
-			color: <?php echo $link_color; ?>;
-		}
-	}
-
-</style>
-
-<?php
-
-}
-
-//////////////////////////////////////////////////////
 // Setup Theme
+if ( ! function_exists( 'birdtips_setup' ) ) :
 function birdtips_setup() {
 
 	// Set languages
@@ -236,6 +97,18 @@ function birdtips_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	/*
+	 * Switch default core markup for search form, comment form, and comments
+	 * to output valid HTML5.
+	 */
+	add_theme_support( 'html5', array(
+		'search-form',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption',
+	) );
+
+	/*
 	 * This theme supports all available post formats by default.
 	 * See http://codex.wordpress.org/Post_Formats
 	 */
@@ -246,8 +119,10 @@ function birdtips_setup() {
 	/* This theme supports custom background color and image, and here
 	 * we also set up the default background color.
 	 */
+	$birdtips_default_colors = birdtips_get_default_colors();
+	$birdtips_color = trim( $birdtips_default_colors[ 'background_color' ], '#' );
 	add_theme_support( 'custom-background', array(
-		'default-color' => 'F5F5F5',
+		'default-color' => $birdtips_color,
 	) );
 
 	// This theme uses wp_nav_menu() in one location.
@@ -259,13 +134,13 @@ function birdtips_setup() {
 	add_theme_support( 'title-tag' );
 
 	// Add support for custom headers.
+	$birdtips_color = trim( $birdtips_default_colors[ 'navigation_color' ], '#' );
 	add_theme_support( 'custom-header', array(
-		'default-text-color'	=> 'CCC',
+		'default-text-color'	=> $birdtips_color,
 		'default-image'			=> '%s/images/headers/green.jpg',
 		'width'					=> 1075,
 		'height'				=> 200,
-		'random-default'		=> true,
-		'wp-head-callback'		=> 'birdtips_header_style',
+		'random-default'		=> true
 	) );
 
 	register_default_headers( array(
@@ -273,57 +148,25 @@ function birdtips_setup() {
 			'url'			=> '%s/images/headers/green.jpg',
 			'thumbnail_url'	=> '%s/images/headers/green-thumbnail.jpg',
 			'description'	=> 'Green'
-		),
-		'blue' => array(
-			'url'			=> '%s/images/headers/blue.jpg',
-			'thumbnail_url'	=> '%s/images/headers/blue-thumbnail.jpg',
-			'description'	=> 'Blue'
-		),
-		'yellow' => array(
-			'url'			=> '%s/images/headers/yellow.jpg',
-			'thumbnail_url'	=> '%s/images/headers/yellow-thumbnail.jpg',
-			'description'	=> 'Yellow'
-		),
-		'red' => array(
-			'url'			=> '%s/images/headers/red.jpg',
-			'thumbnail_url'	=> '%s/images/headers/red-thumbnail.jpg',
-			'description'	=> 'Red'
-		),
-		'white' => array(
-			'url'			=> '%s/images/headers/white.jpg',
-			'thumbnail_url'	=> '%s/images/headers/white-thumbnail.jpg',
-			'description'	=> 'White'
-		),
-		'orange' => array(
-			'url'			=> '%s/images/headers/orange.jpg',
-			'thumbnail_url'	=> '%s/images/headers/orange-thumbnail.jpg',
-			'description'	=> 'Orange'
-		),
-		'pink' => array(
-			'url'			=> '%s/images/headers/pink.jpg',
-			'thumbnail_url'	=> '%s/images/headers/pink-thumbnail.jpg',
-			'description'	=> 'Pink'
-		),
-		'purple' => array(
-			'url'			=> '%s/images/headers/purple.jpg',
-			'thumbnail_url'	=> '%s/images/headers/purple-thumbnail.jpg',
-			'description'	=> 'Purple'
-		),
+		)
 	) );
 }
+endif; // birdtips_setup
 add_action( 'after_setup_theme', 'birdtips_setup' );
 
 //////////////////////////////////////////////////////
 // Enqueue Acripts
 function birdtips_scripts() {
 
+	wp_enqueue_script( 'birdtips-html5', get_template_directory_uri() . '/js/html5shiv.js', array(), '3.7.2' );
+	wp_script_add_data( 'birdtips-html5', 'conditional', 'lt IE 9' );
+
 	if ( is_singular() && comments_open() && get_option('thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script('jquery');
-	wp_enqueue_script( 'birdtips', get_template_directory_uri() .'/js/birdtips.js', 'jquery', '1.08' );
-	wp_enqueue_style( 'birdfield-google-font', '//fonts.googleapis.com/css?family=Lato', false, null, 'all' );
+	wp_enqueue_script( 'birdtips', get_template_directory_uri() .'/js/birdtips.js',array( 'jquery' ), '1.09' );
+	wp_enqueue_style( 'birdtips-google-font', '//fonts.googleapis.com/css?family=Lato', false, null, 'all' );
 	wp_enqueue_style( 'birdtips', get_stylesheet_uri() );
 
 	if ( strtoupper( get_locale() ) == 'JA' ) {
@@ -345,9 +188,15 @@ add_filter('excerpt_more', 'birdtips_excerpt_more' );
 // Theme Customizer
 function birdtips_customize($wp_customize) {
 
+	// Remove the core header textcolor control, as it shares the main text color.
+	$wp_customize->remove_control( 'header_textcolor' );
+
+	// defaut colors
+	$birdtips_default_colors = birdtips_get_default_colors();
+
 	// Text Color
 	$wp_customize->add_setting( 'birdtips_text_color', array(
-		'default'			=> '#555',
+		'default'			=> $birdtips_default_colors[ 'text_color' ],
 		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	) );
 
@@ -359,7 +208,7 @@ function birdtips_customize($wp_customize) {
 
 	// Link Color
 	$wp_customize->add_setting( 'birdtips_link_color', array(
-		'default'			=> '#06A',
+		'default'			=> $birdtips_default_colors[ 'link_color' ],
 		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	) );
 
@@ -371,7 +220,7 @@ function birdtips_customize($wp_customize) {
 
 	// Aticle Titler Color
 	$wp_customize->add_setting( 'birdtips_article_title_color', array(
-		'default'			=> '#D63',
+		'default'			=> $birdtips_default_colors[ 'article_title_color' ],
 		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	) );
 
@@ -381,9 +230,9 @@ function birdtips_customize($wp_customize) {
 		'settings'	=> 'birdtips_article_title_color',
 	) ) );
 
-	// Navigation Text Color
+	// Navigation Color
 	$wp_customize->add_setting( 'birdtips_navigation_color', array(
-		'default'			=> '#DDD',
+		'default'			=> $birdtips_default_colors[ 'navigation_color' ],
 		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	) );
 
@@ -437,6 +286,124 @@ function birdtips_sanitize_checkbox( $input ) {
 		return false;
 	}
 }
+
+//////////////////////////////////////////////////////
+// Get default colors
+function birdtips_get_default_colors() {
+	return array( 'background_color'		=> '#F5F5F5',
+					'text_color'			=> '#555555',
+					'link_color'			=> '#0066AA',
+					'navigation_color'		=> '#DDDDDD',
+					'article_title_color'	=> '#DD6633' );
+}
+
+//////////////////////////////////////////////////////
+// Enqueues front-end CSS for the Theme Customizer.
+function birdtips_color_css() {
+
+	// default color
+	$birdtips_default_colors = birdtips_get_default_colors();
+
+	// Custom Text Color
+	$birdtips_text_color = get_theme_mod( 'birdtips_text_color', $birdtips_default_colors[ 'text_color' ] );
+	if( strcasecmp( $birdtips_text_color, $birdtips_default_colors[ 'text_color' ] )) {
+		$birdtips_css = "
+			/* Custom Text Color */
+			body,
+			.archive #content ul li a,
+			.error404 #content ul li a,
+			.widget ul li a {
+				color: {$birdtips_text_color};
+			}
+		";
+
+		wp_add_inline_style( 'birdtips', $birdtips_css );
+	}
+
+	// Custom Link Color
+	$birdtips_link_color = get_theme_mod( 'birdtips_link_color', $birdtips_default_colors[ 'link_color' ] );
+	if( strcasecmp( $birdtips_link_color, $birdtips_default_colors[ 'link_color' ] )) {
+		$birdtips_css = "
+			/* Custom Link Color */
+			a,
+			#content .hentry.sticky .entry-header .entry-title a,
+			#content .tablenav a,
+			#content .hentry .page-link,
+			#content .hentry .page-link a span {
+				color: {$birdtips_link_color};
+			}
+
+			#content .hentry.sticky .entry-header .postdate,
+			#content .tablenav .current,
+			#content .hentry .page-link span,
+			.widget #wp-calendar tbody td a {
+				background: {$birdtips_link_color};
+			}
+
+			#content a,
+			#content a:hover,
+			#content .hentry .page-link span,
+			#content .tablenav a,
+			#content .tablenav .current {
+				border-color: {$birdtips_link_color};
+			}
+
+			@media screen and (max-width: 650px) {
+				#content .hentry.sticky .entry-header .postdate {
+					color: {$birdtips_link_color};
+				}
+			}
+		";
+
+		wp_add_inline_style( 'birdtips', $birdtips_css );
+	}
+
+	// Custom Aticle Title Color
+	$birdtips_article_title_color = get_theme_mod( 'birdtips_article_title_color', $birdtips_default_colors[ 'article_title_color' ] );
+	if( strcasecmp( $birdtips_article_title_color, $birdtips_default_colors[ 'article_title_color' ] )) {
+		$birdtips_css = "
+			/* Custom Aticle Title Color */
+			#content .hentry .entry-header .entry-title,
+			#content .hentry .entry-header .entry-title a,
+			#content #comments ol.commentlist li.pingback.bypostauthor .comment-author .fn,
+			#content #comments ol.commentlist li.comment.bypostauthor .comment-author .fn {
+				color: {$birdtips_article_title_color};
+			}
+
+			#content .hentry .entry-header .postdate,
+			#footer {
+				background: {$birdtips_article_title_color};
+			}
+
+			@media screen and (max-width: 650px) {
+				#content .hentry .entry-header .postdate {
+					color: {$birdtips_article_title_color};
+				}
+			}
+		";
+
+		wp_add_inline_style( 'birdtips', $birdtips_css );
+	}
+
+	// Navigation Color
+	$birdtips_navigation_color = get_theme_mod( 'birdtips_navigation_color', $birdtips_default_colors[ 'navigation_color' ] );
+	if( strcasecmp( $birdtips_navigation_color, $birdtips_default_colors[ 'navigation_color' ] )) {
+		$birdtips_css = "
+			/* Custom Navigation Color */
+			#header h1 a,
+			#header #branding #site-title a,
+			#header #branding #site-description,
+			#menu-wrapper .menu ul#menu-primary-items > li > a {
+				color: {$birdtips_navigation_color};
+				border-left-color: {$birdtips_navigation_color};
+			}
+		";
+
+		wp_add_inline_style( 'birdtips', $birdtips_css );
+	}
+
+}
+add_action( 'wp_enqueue_scripts', 'birdtips_color_css', 11 );
 
 //////////////////////////////////////////////////////
 // Removing the default gallery style

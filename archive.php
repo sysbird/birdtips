@@ -14,7 +14,10 @@ get_header(); ?>
 		<?php if (have_posts()) : ?>
 			<article class="hentry">
 				<header class="entry-header">
-					<h1 class="entry-title"><?php birdtips_the_archivetitle(); ?></h1>
+					<?php
+						the_archive_title( '<h1 class="entry-title">', '</h1>' );
+						the_archive_description( '<div class="taxonomy-description">', '</div>' );
+					?>
 				</header>
 
 				<ul>
@@ -24,7 +27,7 @@ get_header(); ?>
 				</ul>
 			</article>
 
-			<?php birdtips_the_pagenation(); ?>
+			<?php the_posts_pagination( array( 'mid_size' => 3 ) ); ?>
 		<?php else: ?>
 			<p><?php _e( 'Sorry, no posts matched your criteria.', 'birdtips' ); ?></p>
 		<?php endif; ?>

@@ -15,7 +15,7 @@ get_header(); ?>
 				<?php get_template_part( 'content', get_post_format() ); ?>
 			<?php endwhile; ?>
 
-			<?php birdtips_the_pagenation(); ?>
+			<?php the_posts_pagination( array( 'mid_size' => 3 ) ); ?>
 		<?php endif; ?>
 	</div>
 

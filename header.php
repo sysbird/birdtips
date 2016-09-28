@@ -12,10 +12,9 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>" >
 <meta name="viewport" content="width=device-width" >
 <link rel="profile" href="http://gmpg.org/xfn/11" >
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" >
-<!--[if lt IE 9]>
-<script src="<?php echo get_template_directory_uri() ?>/js/html5shiv.js" type="text/javascript"></script>
-<![endif]-->
+<?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+<?php endif; ?>
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -64,7 +63,7 @@
 				<?php wp_nav_menu( array( 'theme_location'	=> 'primary',
 								'container_class'	=> 'menu',
 								'menu_class'		=> '',
-								'menu_id'		=> 'menu-primary-items',
+								'menu_id'			=> 'menu-primary-items',
 								'items_wrap'		=> '<div id="small-menu"></div><ul id="%1$s" class="%2$s">%3$s</ul>',
 								'fallback_cb'		=> '' ) ); ?>
 			</nav>

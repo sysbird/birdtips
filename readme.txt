@@ -17,7 +17,7 @@ If no content is be added to the sidebars these will display search box and cate
 
 
 == License ==
-BirdTIPS WordPress theme, Copyright (C) 2014 Sysbird
+BirdTIPS WordPress theme, Copyright (C) 2012 Sysbird
 The theme is licensed under the GPL.
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -33,7 +33,7 @@ http://www.sysbird.jp
 
 == Changelog ==
 v1.09
-2019-09-20
+2016-09-20
 Working!!
 
 v1.08
