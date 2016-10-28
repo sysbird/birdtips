@@ -15,28 +15,25 @@ if ( ! isset( $content_width ) )
 // Set Widgets
 function birdtips_widgets_init() {
 
-	if ( function_exists( 'register_sidebar' ) ){
+	register_sidebar( array (
+		'name'			=> __( 'Widget Area for left sidebar', 'birdtips' ),
+		'id'			=> 'widget-area-left',
+		'description'	=> __( 'Widget Area for left sidebar', 'birdtips' ),
+		'before_widget'	=> '<div class="widget">',
+		'after_widget'	=> '</div>',
+		'before_title'	=> '<h3>',
+		'after_title'	=> '</h3>',
+		) );
 
-		register_sidebar( array (
-			'name'			=> __( 'Widget Area for left sidebar', 'birdtips' ),
-			'id'			=> 'widget-area-left',
-			'description'	=> __( 'Widget Area for left sidebar', 'birdtips' ),
-			'before_widget'	=> '<div class="widget">',
-			'after_widget'	=> '</div>',
-			'before_title'	=> '<h3>',
-			'after_title'	=> '</h3>',
-			) );
-
-		register_sidebar( array (
-			'name'			=> __( 'Widget Area for right sidebar', 'birdtips' ),
-			'id'			=> 'widget-area-right',
-			'description'	=> __( 'Widget Area for right sidebar', 'birdtips' ),
-			'before_widget'	=> '<div class="widget">',
-			'after_widget'	=> '</div>',
-			'before_title'	=> '<h3>',
-			'after_title'	=> '</h3>',
-			) );
-	}
+	register_sidebar( array (
+		'name'			=> __( 'Widget Area for right sidebar', 'birdtips' ),
+		'id'			=> 'widget-area-right',
+		'description'	=> __( 'Widget Area for right sidebar', 'birdtips' ),
+		'before_widget'	=> '<div class="widget">',
+		'after_widget'	=> '</div>',
+		'before_title'	=> '<h3>',
+		'after_title'	=> '</h3>',
+		) );
 }
 add_action( 'widgets_init', 'birdtips_widgets_init' );
 

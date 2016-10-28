@@ -33,8 +33,8 @@ http://www.sysbird.jp
 
 == Changelog ==
 v1.09
-2016-09-20
-Working!!
+# 2016-09-20 Working!!
+* Use the Flexbox for column lauout.
 
 v1.08
 2015-07-06

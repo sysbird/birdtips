@@ -67,7 +67,7 @@ body {
     border: 0;
     width: 100%;
 	background-color: $background_color;
-	font-family: 'Lato', Verdana,Arial, Meiryo , "Hiragino Kaku Gothic Pro" ,sans-serif;
+	font-family: 'Lato', Verdana, Arial, Meiryo, "Hiragino Kaku Gothic Pro", sans-serif;
 	font-size: 0.92em;
 	color: $text_color;
 
@@ -91,35 +91,34 @@ body {
 #header {
 	max-width: 100%;
 	margin: 0 auto;
-    position: relative;
+	position: relative;
 }
 
 #wrapper {
 	margin:0 0 0;
 	padding:25px 25px 25px 75px;
-	overflow: hidden;
+	display: -webkit-flex;
+	display: flex;
 }
 
 #main {
-	width: 78.59%;
-	float: left;
+	flex: 4;
+	display: -webkit-flex;
+	display: flex;
+	padding-right: 2%;
 }
 
 #content {
-	width: 72.669%;
-	float: left;
+	flex: 3;
+	padding-right: 3%;
 }
 
 #leftcolumn {
-	width: 24.275%;
-	margin-left:2.454%;
-	float: left;
+	flex: 1;
 }
 
 #rightcolumn {
-	width: 19.775%;
-	float: right;
-	overflow: hidden;
+	flex: 1;
 }
 
 #footer {
@@ -329,13 +328,13 @@ body {
 
 			.postdate {
 				&:before {
-				    @include font-awesome( "\f133", 0, 0.2em );
+					@include font-awesome( "\f133", 0, 0.2em );
 				}
 			}
 
 			.author {
 				&:before {
-				    @include font-awesome( "\f007", 0, 0.2em );
+					@include font-awesome( "\f007", 0, 0.2em );
 				}
 			}
 
@@ -395,6 +394,16 @@ body {
 				text-align: right;
 				width: 60px;
 				line-height: 1.1;
+
+				&.circle {
+					left: -95px;
+					top: -1em;
+					border-radius: 100%;
+					width: 5em;
+					height: 5em;
+					text-align: center;
+					padding: 0.6em 0;
+				}
 
 				span {
 					display: block;
@@ -1411,30 +1420,15 @@ form {
 	}
 
 	#main {
-		width: 76.59%;
+		display: block;
 	}
 
 	#content {
-		width:98%;
-		float: left;
-	}
-
-	#leftcolumn {
-		margin:0;
-		float: none;
-	}
-
-	#rightcolumn {
-		width: 23.275%;
-		float: right;
+		padding-right: 0;
 	}
 
 	/* --- Sidebars --- */
 	#leftcolumn {
-		width: 92.2%;
-		margin-left:0;
-		padding: 30px 0 0;
-		float: left;
 
 		.widget ul li {
 			border: none;
@@ -1451,16 +1445,6 @@ form {
 			ul li {
 				border-top: none;
 			}
-		}
-
-		aside:last-child {
-			margin-bottom: 0;
-			border-bottom: none;
-		}
-
-		aside, #rightcolumn aside {
-			float: none;
-			overflow: hidden;
 		}
 	}
 }
@@ -1481,22 +1465,12 @@ form {
 		}
 	}
 
+	#wrapper {
+		display: block;
+	}
+
 	#main {
-		width: 100%;
-	}
-
-	#content {
-		width: 100%;
-		float: none;
-	}
-
-	#leftcolumn {
-		width: 100%;
-	}
-
-	#rightcolumn {
-		width: 100%;
-		float: none;
+		padding-right: 0;
 	}
 
 	/* --- Sidebars --- */
