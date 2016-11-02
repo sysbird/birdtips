@@ -117,15 +117,15 @@ body {
 #main {
   flex: 4;
   display: -webkit-flex;
-  display: flex;
-  padding-right: 2%; }
+  display: flex; }
 
 #content {
-  flex: 3;
-  padding-right: 3%; }
+  flex: 3; }
 
 #leftcolumn {
-  flex: 1; }
+  flex: 1;
+  padding-left: 3%;
+  padding-right: 3%; }
 
 #rightcolumn {
   flex: 1; }
@@ -291,7 +291,9 @@ body {
     padding: 0.4em;
     color: #999; }
     #content .hentry .entry-meta span {
-      padding-right: 0.8em; }
+      padding: 0 0.4em; }
+    #content .hentry .entry-meta a {
+      padding: 0 0.4em; }
     #content .hentry .entry-meta .postdate:before {
       content: "";
       display: inline-block;
