@@ -26,6 +26,7 @@ $navigation_color: #DDD;
 $title_color: #D63;
 $border-color: #CCC;
 $meta-color: #999;
+$line-height: 1.7;
 
 /* Font Awesome
 --------------------------------------------- */
@@ -144,7 +145,7 @@ body {
 
 		#site-title {
 			margin: 0;
-			padding: 0.8em 0 0 0;
+			padding: #{$line-height /2}em 0 0 0;
 			font-size: 2rem;
 			line-height: 1.2;
 
@@ -186,15 +187,8 @@ body {
 #menu-wrapper {
 	position: absolute;
 	bottom: 5px;
-	left: 0;
+	left: 75px;
 	z-index: 9;
-	padding-left: 75px;
-	*zoom: 1;
-	&:after {
-	    clear: both;
-		content: "";
-		display: block;
-	}
 
 	.menu {
 		#small-menu {
@@ -202,9 +196,7 @@ body {
 		}
 
 		ul#menu-primary-items {
-			&:after {
-				@include clearfix;
-			}
+			@include pie-clearfix;
 
 			li {
 				position: relative;
@@ -229,7 +221,7 @@ body {
 
 						a {
 							display: block;
-							padding: 0.8em;
+							padding: #{$line-height /2}em;
 							background: $background_color;
 							color: $text-color;
 							border-top: dotted 1px $border-color;
@@ -267,11 +259,11 @@ body {
 			}
 
 			> li {
-				float: left;
+				display: inline-block;
 
 				> a {
 					display: block;
-					padding: 0.4em 0.8em;
+					padding: #{$line-height /4}em #{$line-height /2}em;
 					color: $navigation_color;
 					border-left: solid 1px $navigation_color;
 					line-height: 1.2;
@@ -282,7 +274,7 @@ body {
 				}
 
 				&:first-child a {
-					border-left: none;
+					border: none;
 					padding-left: 0;
 				}
 
@@ -319,15 +311,17 @@ body {
 			display: block;
 			background: $background_color;
 			font-size: 0.96em;
-			padding: 0.4em;
+			padding: #{$line-height /4}em;
 			color: $meta-color;
+			@include clearfix;
 
 			span {
-				padding: 0 0.4em;
+				padding: 0 #{$line-height /4}em;
+				display: inline-block;
 			}
 
 			a {
-				padding: 0 0.4em;
+				padding: 0 #{$line-height /4}em;
 			}
 
 			.postdate {
@@ -344,19 +338,19 @@ body {
 
 			.category {
 				&:before {
-				    @include font-awesome( "\f07b", 0, 0.2em );
+					@include font-awesome( "\f07b", 0, 0.2em );
 				}
 			}
 
 			.tag {
 				&:before {
-				    @include font-awesome( "\f02c", 0, 0.2em );
+					@include font-awesome( "\f02c", 0, 0.2em );
 				}
 			}
 
 			.comment {
 				&:before {
-				    @include font-awesome( "\f075", 0, 0.2em );
+					@include font-awesome( "\f075", 0, 0.2em );
 				}
 			}
 		}
@@ -368,10 +362,10 @@ body {
 
 			.entry-title {
 				color: $title_color;
-				font-size: 1.6rem;
+				font-size: #{$line-height}rem;
 				font-weight: normal;
 				margin: 0 0 1em 0;
-				padding: 0 0 0.8em 0;
+				padding: 0 0 #{$line-height /2}em 0;
 				line-height: 1.2;
 				border-bottom: dotted 2px $border-color;
 
@@ -421,13 +415,13 @@ body {
 
 		.page-link {
 			clear: both;
-			margin: 1.6em 0;
+			margin: #{$line-height}em 0;
 			color: $link-color;
 
 			span {
 				background: $link-color;
 				color: #FFF;
-				padding: 0.2em 0.4em;
+				padding: #{$line-height /8}em #{$line-height /4}em;
 				text-decoration:none;
 				font-weight: normal;
 				text-align: center;
@@ -459,7 +453,7 @@ body {
 
 		&.more-link {
 			&:before {
-			    @include font-awesome("\f061", 0, 0.4em );
+			    @include font-awesome("\f061", 0, #{$line-height /4}em );
 			}
 		}
 	}
@@ -490,7 +484,7 @@ body {
 
 	h2 {
 		border-bottom: dashed 1px $border-color;
-		padding-bottom: 0.4em;
+		padding-bottom: #{$line-height /4}em;
 	}
 
 	h3 {
@@ -499,8 +493,8 @@ body {
 	}
 
 	p {
-		line-height: 1.6;
-		margin: 0 0 1.6em;
+		line-height: $line-height;
+		margin: 0 0 #{$line-height}em;
 	}
 
 	blockquote {
@@ -533,14 +527,13 @@ body {
 		max-width: 100%;
 		border-collapse: collapse;
 		border-spacing: 0;
-		margin-bottom: 1.6em;
+		margin-bottom: #{$line-height}em;
 
 		th,
 		td {
 			border: 1px solid $border-color;
 			line-height: 1.4;
-			padding: 0.8em;
-			text-align: left;
+			padding: #{$line-height /2}em;
 			vertical-align: top;
 		}
 
@@ -553,9 +546,9 @@ body {
 
 	pre {
 		border: dashed 1px $border-color;
-		padding: 0.8em;
+		padding: #{$line-height /2}em;
 		background: $background_color;
-		margin-bottom: 1.6em;
+		margin-bottom: #{$line-height}em;
 		line-height: 1.4;
 		white-space: pre-wrap;
 		word-wrap: break-word;
@@ -566,22 +559,22 @@ body {
 	}
 
 	code, kbd, pre, samp {
-	    font-family: monospace,serif;
+		font-family: monospace,serif;
 	}
 
 	hr {
-	    background-color: $border-color;
-	    border: 0 none;
-	    height: 1px;
-	    margin-bottom: 1.6m;
+		background-color: $border-color;
+		border: 0 none;
+		height: 1px;
+		margin-bottom: #{$line-height}em;
 	}
 
 	sup, sub {
-	    font-size: 0.8em;
-	    height: 0;
-	    line-height: 0;
-	    position: relative;
-	    vertical-align: baseline;
+		font-size: #{$line-height /2}em;
+		height: 0;
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
 	}
 
 	sub {
@@ -601,12 +594,12 @@ body {
 	}
 
 	abbr, acronym {
-    	border-bottom: 1px dotted #666;
-    	cursor: help;
+		border-bottom: 1px dotted #666;
+		cursor: help;
 	}
 	ul,
 	ol {
-		margin: 0 0 1.6em 1em;
+		margin: 0 0 #{$line-height}em 1em;
 		padding: 0 0 0 1em;
 		line-height: 1.4;
 
@@ -645,14 +638,14 @@ body {
 
 	dl {
 		margin:0 0 1em 0;
-		line-height: 1.6;
+		line-height: $line-height;
 
 		dt {
 			font-weight: bold;
 		}
 
 		dd {
-			margin: 0 1.5em 1.6em;
+			margin: 0 1.5em #{$line-height}em;
 			padding: 0;
 		}
 	}
@@ -712,20 +705,20 @@ body {
 		color: $link-color;
 		border:solid 1px $link-color;
 		text-align: center;
-		padding: 0.4em 0.6em;
-		margin-bottom: 0.4em;
+		padding: #{$line-height /4}em #{$line-height /3}em;
+		margin-bottom: #{$line-height /4}em;
 		text-decoration:none;
 
 		&.prev,
 		&.next {
 			font-weight: bold;
 			border: none;
-			padding: 0.4em 0;
+			padding: #{$line-height /4}em 0;
 		}
 
 		&.dots {
 			border: none;
-			padding: 0.4em;
+			padding: #{$line-height /4}em;
 		}
 	}
 
@@ -837,7 +830,7 @@ a:hover img {
 
 	.wp-caption {
 		padding: 5px;
-		margin-bottom: 1.6em;
+		margin-bottom: #{$line-height}em;
 		background: $background_color;
 		max-width: 100%;
 
@@ -966,7 +959,7 @@ video {
 		li.comment {
 			border-left: 2px solid $border-color;
 			clear: both;
-			margin-bottom: 1.6em;
+			margin-bottom: #{$line-height}em;
 			padding: 0 0 0 10px;
 			position: relative;
 			list-style: none;
@@ -990,8 +983,8 @@ video {
 
 			.comment-meta {
 				font-size: 0.96em;
-				line-height: 1.6;
-				margin-bottom: 1.6em;
+				line-height: $line-height;
+				margin-bottom: #{$line-height}em;
 
 				a {
 					border-bottom: none;
@@ -1009,11 +1002,11 @@ video {
 			}
 
 			.reply {
-				margin-bottom: 1.6em;
+				margin-bottom: #{$line-height}em;
 
 				a.comment-reply-link {
 					&:before {
-						@include font-awesome( "\f112", 0, 0.2em );
+						@include font-awesome( "\f0da", 0, 0.2em );
 					}
 				}
 			}
@@ -1032,10 +1025,10 @@ form {
 #commentform {
 	border: 1px dotted $border-color;
 	padding: 10px 15px 0;
-	margin-bottom: 1.6em;
+	margin-bottom: #{$line-height}em;
 
 	p {
-		margin-bottom: 0.8em;
+		margin-bottom: #{$line-height /2}em;
 	}
 
 	label {
@@ -1133,13 +1126,12 @@ form {
 		@include clearfix;
 
 		a {
-			display: block;
 			text-decoration: none;
 			color: $text_color;
 			border: none;
-			height: auto;
 			padding: 0.5em 0;
-			@include clearfix;
+			display: -webkit-flex;
+			display: flex;
 
 			&:hover {
 				background: $background_color;
@@ -1147,20 +1139,18 @@ form {
 		}
 
 		span {
-			padding: 0 0.5em 0 0;
 			text-indent: -0.3em;
 			margin-left: 0.6em;
-			float: left;
+			flex: 2;
 
 			&:before {
-			    @include font-awesome( "\f0da", 0, 0.2em );
+				@include font-awesome( "\f0da", 0, 0.2em );
 			}
 		}
 
 		em {
-			display: block;
-			float: right;
-			padding-left: 1.5em;
+			flex: 1;
+			text-align: right;
 			font-style: normal;
 		}
 	}
@@ -1168,7 +1158,7 @@ form {
 
 .search #content {
 	h2 {
-		font-size: 1.6rem;
+		font-size: #{$line-height}em;
 
 		a {
 			border: none;
@@ -1183,30 +1173,25 @@ form {
 /* Single
 -------------------------------------------------------------------- */
 .single {
+
 	#content #nav-below {
-		@include clearfix;
-
-		.nav-next,
-		.nav-previous {
-			display: block;
-			width: 48%;
-			padding: 5px 0;
-		}
+		display: -webkit-flex;
+		display: flex;
 
 		.nav-previous {
-			float: right;
+			flex: 1;
 			text-align: right;
 
 			a:after {
-			    @include font-awesome( "\f061", 0.4em );
+				@include font-awesome( "\f061", 0.4em );
 			}
 		}
 
 		.nav-next {
-			float: left;
+			flex: 1;
 
 			a:before {
-			    @include font-awesome( "\f060", 0, 0.4em );
+				@include font-awesome( "\f060", 0, 0.4em );
 			}
 		}
 	}
@@ -1221,7 +1206,7 @@ form {
 
 			.entry-attachment {
 				text-align: center;
-				margin-bottom: 1.6em;
+				margin-bottom: #{$line-height}em;
 
 				.wp-caption {
 					background: none;
@@ -1239,8 +1224,8 @@ form {
 --------------------------------------------- */
 .widget {
 	margin-bottom: 40px;
-	margin-bottom: 2em;
-	line-height: 1.2;
+	margin-bottom: #{$line-height /2}em;
+	line-height: #{$line-height *2 /3}em;
 
 	a {
 		text-decoration: none;
@@ -1272,7 +1257,7 @@ form {
 		li {
 			margin-top: -1px;
 			border-top: dotted 1px $border-color;
-			padding: 0.3em 0 0.3em 0.6em;
+			padding:  #{$line-height /4}em 0 #{$line-height /4}em 0.6em;
 			text-indent: -0.3em;
 
 			a {
@@ -1357,7 +1342,7 @@ form {
 
 	.site-title {
 		padding: 1em 0;
-		line-height: 1.4;
+		line-height: $line-height;
 
 		.home {
 			font-weight: bold;
@@ -1371,8 +1356,8 @@ form {
 			font-family: Georgia, "Bitstream Charter", serif;
 			font-style: italic;
 
-			&:after {
-			    @include font-awesome( "\f19a", 0.2em, 0.2em );
+			a:before {
+				@include font-awesome( "\f19a", 0.2em, 0.2em );
 			}
 		}
 	}
@@ -1423,7 +1408,7 @@ form {
 		overflow: hidden;
 	}
 
-	#main {
+	#wrapper {
 		display: block;
 	}
 
@@ -1433,6 +1418,7 @@ form {
 
 	/* --- Sidebars --- */
 	#leftcolumn {
+		padding-right: 0;
 
 		.widget ul li {
 			border: none;
@@ -1469,12 +1455,12 @@ form {
 		}
 	}
 
-	#wrapper {
+	#main {
 		display: block;
 	}
 
-	#main {
-		padding-right: 0;
+	#leftcolumn {
+		padding-left: 0;
 	}
 
 	/* --- Sidebars --- */
@@ -1570,7 +1556,7 @@ form {
 
 					ul {
 						position: static;
-						padding-left: 0.8em;
+						padding-left: #{$line-height /2}em;
 						display: block;
 						border: none;
 						width: auto;
@@ -1580,7 +1566,7 @@ form {
 
 							a {
 								border-top: none;
-								padding: 0.4em;
+								padding: #{$line-height /4}em;
 								background: none;
 
 								&:hover {
@@ -1609,7 +1595,7 @@ form {
 						color: $text-color !important;
 						border-left: none;
 						line-height: 1.2;
-						padding: 0.4em;
+						padding: #{$line-height /4}em;
 
 						&:hover {
 							text-decoration: none;
@@ -1617,7 +1603,7 @@ form {
 					}
 
 					&:first-child a {
-						padding-left: 0.4em;
+						padding-left: #{$line-height /4}em;
 					}
 
 					&.menu-item-has-children {
@@ -1686,8 +1672,48 @@ form {
 		}
 	}
 
+	.single {
+
+		#content #nav-below {
+			display: block;
+
+			.nav-previous {
+				display: block;
+				margin-top: #{$line-height /2}em;
+				text-align: start;
+			}
+
+			.nav-next {
+				display: block;
+			}
+		}
+	}
+
 	#footer {
 		padding-left:10px;
+	}
+
+	.archive #content ul,
+	.error404 #content ul {
+
+		li {
+
+			a {
+				display: block;
+			}
+
+			span {
+				display: block;
+
+			}
+
+			em {
+				display: block;
+				text-align: start;
+				margin-left: 0.6em;
+				font-size: 0.86em;
+			}
+		}
 	}
 }
 

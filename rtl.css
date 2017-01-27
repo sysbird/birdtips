@@ -15,8 +15,7 @@ caption, th, td {
 --------------------------------------------- */
 body {
 	direction: rtl;
-	unicode-bidi: embed;
-}
+	unicode-bidi: embed;　}
 
 #wrapper {
   padding-right: 75px;
@@ -25,8 +24,33 @@ body {
 /* Header
 --------------------------------------------- */
 #header #branding {
-	left: auto;
+  left: auto;
   right: 75px; }
+
+
+/* Menu
+-------------------------------------------------------------- */
+#menu-wrapper {
+  left: auto;
+  right: 75px; }
+
+#menu-wrapper .menu ul#menu-primary-items > li > a {
+  border-left: none;
+  border-right: 1px solid #ddd; }
+
+#menu-wrapper .menu ul#menu-primary-items > li:first-child a {
+  padding: 0.425em 0 0.425em 0.85em; }
+
+#menu-wrapper .menu ul#menu-primary-items > li.menu-item-has-children > a:after,
+#menu-wrapper .menu ul#menu-primary-items li ul li.menu-item-has-children > a:after {
+  padding-left: 0;
+  padding-right: 5px; }
+
+#menu-wrapper .menu ul#menu-primary-items li ul li.menu-item-has-children > a:after {
+  content: "\f0d9"; }
+
+#menu-wrapper .menu ul#menu-primary-items li ul li ul {
+	right: 100%; }
 
 /* Posts
 --------------------------------------------- */
@@ -35,7 +59,8 @@ body {
   right: -75px;
   padding: 5px 0 15px 7px;
   text-align: left; }
-  #content .hentry .entry-header .postdate.circle {
+
+#content .hentry .entry-header .postdate.circle {
     right: -95px; }
 
 #content h3 {
@@ -45,8 +70,50 @@ body {
   padding-right: 10px; }
 
 #content a.thumbnail {
-    float: left;
-    margin: 0 1em 0.5em 0; }
+  float: left;
+  margin: 0 1em 0.5em 0; }
+
+#content blockquote {
+  border-left: none;
+  border-right: 10px solid #ccc;
+  margin-left: 0;
+  margin-right: 1em;
+  padding-left: 0;
+  padding-right: 1em; }
+
+#content ul, #content ol {
+  margin: 0 11m 1.6em 0;
+  padding: 0 1em 0 0; }
+
+/* Pagenation
+-------------------------------------------------------------------- */
+#content .pagination a.page-numbers.prev:before {
+  content: "\f061";
+  padding-left: 0.4em;
+  padding-right: 0; }
+
+#content .pagination a.page-numbers.next:after {
+    content: "\f060";
+    padding-left: 0;
+    padding-right: 0.4em; }
+
+/* Comments
+-------------------------------------------------------------- */
+#content #comments ol.commentlist li.pingback,
+#content #comments ol.commentlist li.comment {
+	border-left: none;
+	border-right: 2px solid #ccc;
+	padding: 0 10px 0 0; }
+
+#content #comments ol.commentlist li.pingback .comment-author img, #content #comments ol.commentlist li.comment .comment-author img {
+  float: right;
+   margin: 0 0 10px 10px; }
+
+#content #comments ol.commentlist li.pingback .reply a.comment-reply-link:before,
+#content #comments ol.commentlist li.comment .reply a.comment-reply-link:before {
+  content: "\f0d9";
+  padding-left: 0.2em;
+  padding-right: 0; }
 
 /* Searcform
 --------------------------------------------- */
@@ -56,6 +123,47 @@ body {
   right: auto;
   left: 1px; }
 
+/* Archive
+-------------------------------------------------------------------- */
+.archive #content ul li span, .error404 #content ul li span {
+  margin-left: 0;
+  margin-right: 0.6em;
+  text-indent: -0.3em; }
+
+.archive #content ul li span:before, .error404 #content ul li span:before {
+  content: "\f0d9";
+  padding-left: 0.2em;
+  padding-right: 0; }
+
+.archive #content ul li em, .error404 #content ul li em {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0.6em; }
+
+/* Single
+-------------------------------------------------------------------- */
+.single #content #nav-below .nav-previous a:after {
+  content: "\f060";
+  padding-left: 0;
+  padding-right: 0.4em; }
+
+.single #content #nav-below .nav-next a:before {
+  content: "\f061";
+  padding-left: 0.4em;
+  padding-right: 0; }
+
+/* Sidebars
+--------------------------------------------- */
+.widget ul li {
+  padding-right: 0.66em; }
+
+.widget ul li:before {
+  content: "\f0d9";
+  padding-left: 0.2em;
+  padding-right: 0; }
+
+.widget #wp-calendar tfoot #next {
+  text-align: left; }
 
 /* Footer
 --------------------------------------------- */
@@ -64,3 +172,10 @@ body {
     left: 10px; }
   #footer #back-top a span {
 	text-indent: 119988px; }
+
+/* --- Smartphones and small Tablet PCs --- */
+@media screen and (max-width: 650px) {
+
+	#wrapper {
+		padding:10px; }
+}
