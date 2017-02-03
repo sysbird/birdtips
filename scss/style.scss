@@ -98,6 +98,7 @@ body {
 #wrapper {
 	margin:0 0 0;
 	padding:25px 25px 25px 75px;
+	padding: #{$line-height}em #{$line-height}em #{$line-height}em 75px;
 	display: -webkit-flex;
 	display: flex;
 }
@@ -187,7 +188,7 @@ body {
 #menu-wrapper {
 	position: absolute;
 	bottom: 5px;
-	left: 75px;
+	padding-left: 75px;
 	z-index: 9;
 
 	.menu {
@@ -207,15 +208,15 @@ body {
 
 				ul {
 					position: absolute;
-					top: 1.8em;
+					top: #{ 1.2 + $line-height /2}em;
 					left: 0;
 					margin: 0;
 					border: solid 1px $border-color;
 					display: none; /* hide dropdown */
 					width: 200px;
+					z-index: 2;
 
 					li {
-						float: none;
 						margin: -1px 0 0 0;
 						padding: 0;
 
@@ -298,7 +299,7 @@ body {
 --------------------------------------------- */
 #content{
 	.hentry {
-		margin-bottom: 3.2em;
+		margin-bottom: #{$line-height *2}em;
 
 		.entry-content {
 			@include clearfix;
@@ -706,7 +707,7 @@ body {
 		border:solid 1px $link-color;
 		text-align: center;
 		padding: #{$line-height /4}em #{$line-height /3}em;
-		margin-bottom: #{$line-height /4}em;
+		margin: #{$line-height /8}em;
 		text-decoration:none;
 
 		&.prev,
@@ -1223,9 +1224,8 @@ form {
 /* Sidebars
 --------------------------------------------- */
 .widget {
-	margin-bottom: 40px;
-	margin-bottom: #{$line-height /2}em;
-	line-height: #{$line-height *2 /3}em;
+	margin-bottom: #{$line-height}em;
+	line-height: #{$line-height * 0.8}em;
 
 	a {
 		text-decoration: none;
@@ -1437,6 +1437,10 @@ form {
 			}
 		}
 	}
+
+	#rightcolumn {
+		padding-top: #{$line-height *2}em;
+	}
 }
 
 /* --- iPad Portrait --- */
@@ -1459,14 +1463,19 @@ form {
 		display: block;
 	}
 
+	/* --- Sidebars --- */
 	#leftcolumn {
 		padding-left: 0;
+		padding-top: #{$line-height *2}em;
 	}
 
-	/* --- Sidebars --- */
 	#leftcolumn aside:last-child {
 		margin-bottom: 30px;
 		border-bottom: 1px solid $border-color;
+	}
+
+	#rightcolumn {
+		padding-top: 0;
 	}
 
 	#rightcolumn aside:last-child {
@@ -1489,7 +1498,7 @@ form {
 	#header {
 		#branding {
 			left: 0;
-			padding: 0 2em 0 10px;
+			padding: 0 10px;
 
 			#site-title {
 				font-size: 1.2rem;
@@ -1526,10 +1535,9 @@ form {
 			#small-menu {
 				cursor: pointer;
 				display: block;
-				margin: 0 5px 5px 0;
+				margin: 0 10px 10px 0;
 				font-size: 24px;
 				color: $navigation_color;
-				text-align: center;
 				float: right;
 
 				&:after {
@@ -1540,20 +1548,12 @@ form {
 			ul#menu-primary-items {
 				clear: both;
 				position: absolute;
-				top: 36px;
+				top: 34px;
 				width: 100%;
 				display: none; /* visibility will be toggled with jquery */
 				background: $background_color;
 
 				li {
-					&.menu-item-has-children {
-						position: relative;
-
-						> a {
-							padding-right: 2.2em;
-						}
-					}
-
 					ul {
 						position: static;
 						padding-left: #{$line-height /2}em;
@@ -1588,7 +1588,7 @@ form {
 				}
 
 				> li {
-					float: none;
+					display: block;
 					border-top: dotted 1px $border-color;
 
 					> a {
@@ -1680,7 +1680,7 @@ form {
 			.nav-previous {
 				display: block;
 				margin-top: #{$line-height /2}em;
-				text-align: start;
+				text-align: left;
 			}
 
 			.nav-next {
@@ -1709,7 +1709,6 @@ form {
 
 			em {
 				display: block;
-				text-align: start;
 				margin-left: 0.6em;
 				font-size: 0.86em;
 			}

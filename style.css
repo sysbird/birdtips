@@ -111,6 +111,7 @@ body {
 #wrapper {
   margin: 0 0 0;
   padding: 25px 25px 25px 75px;
+  padding: 1.7em 1.7em 1.7em 75px;
   display: -webkit-flex;
   display: flex; }
 
@@ -177,7 +178,7 @@ body {
 #menu-wrapper {
   position: absolute;
   bottom: 5px;
-  left: 75px;
+  padding-left: 75px;
   z-index: 9; }
   #menu-wrapper .menu #small-menu {
     display: none;
@@ -195,15 +196,15 @@ body {
         /* show dropdown on hover */ }
       #menu-wrapper .menu ul#menu-primary-items li ul {
         position: absolute;
-        top: 1.8em;
+        top: 2.05em;
         left: 0;
         margin: 0;
         border: solid 1px #CCC;
         display: none;
         /* hide dropdown */
-        width: 200px; }
+        width: 200px;
+        z-index: 2; }
         #menu-wrapper .menu ul#menu-primary-items li ul li {
-          float: none;
           margin: -1px 0 0 0;
           padding: 0; }
           #menu-wrapper .menu ul#menu-primary-items li ul li a {
@@ -274,7 +275,7 @@ body {
 /* Posts
 --------------------------------------------- */
 #content .hentry {
-  margin-bottom: 3.2em; }
+  margin-bottom: 3.4em; }
   #content .hentry .entry-content {
     overflow: hidden;
     *zoom: 1; }
@@ -633,7 +634,7 @@ body {
     border: solid 1px #06A;
     text-align: center;
     padding: 0.425em 0.56667em;
-    margin-bottom: 0.425em;
+    margin: 0.2125em;
     text-decoration: none; }
     #content .pagination a.prev, #content .pagination a.next,
     #content .pagination span.prev,
@@ -1066,9 +1067,8 @@ form input {
 /* Sidebars
 --------------------------------------------- */
 .widget {
-  margin-bottom: 40px;
-  margin-bottom: 0.85em;
-  line-height: 1.13333em; }
+  margin-bottom: 1.7em;
+  line-height: 1.36em; }
   .widget a {
     text-decoration: none; }
     .widget a:hover {
@@ -1228,7 +1228,9 @@ form input {
         #leftcolumn .widget ul li a:hover {
           color: #999; }
       #leftcolumn .widget ul li ul li {
-        border-top: none; } }
+        border-top: none; }
+  #rightcolumn {
+    padding-top: 3.4em; } }
 
 /* --- iPad Portrait --- */
 @media screen and (max-width: 800px) {
@@ -1238,12 +1240,15 @@ form input {
     display: none; }
   #main {
     display: block; }
-  #leftcolumn {
-    padding-left: 0; }
   /* --- Sidebars --- */
+  #leftcolumn {
+    padding-left: 0;
+    padding-top: 3.4em; }
   #leftcolumn aside:last-child {
     margin-bottom: 30px;
     border-bottom: 1px solid #CCC; }
+  #rightcolumn {
+    padding-top: 0; }
   #rightcolumn aside:last-child {
     margin-bottom: 0;
     border-bottom: none; } }
@@ -1256,7 +1261,7 @@ form input {
     padding: 10px; }
   #header #branding {
     left: 0;
-    padding: 0 2em 0 10px; }
+    padding: 0 10px; }
     #header #branding #site-title {
       font-size: 1.2rem; }
   #header.no-image #branding {
@@ -1276,10 +1281,9 @@ form input {
     #menu-wrapper .menu #small-menu {
       cursor: pointer;
       display: block;
-      margin: 0 5px 5px 0;
+      margin: 0 10px 10px 0;
       font-size: 24px;
       color: #DDD;
-      text-align: center;
       float: right; }
       #menu-wrapper .menu #small-menu:after {
         content: "";
@@ -1295,15 +1299,11 @@ form input {
     #menu-wrapper .menu ul#menu-primary-items {
       clear: both;
       position: absolute;
-      top: 36px;
+      top: 34px;
       width: 100%;
       display: none;
       /* visibility will be toggled with jquery */
       background: #F5F5F5; }
-      #menu-wrapper .menu ul#menu-primary-items li.menu-item-has-children {
-        position: relative; }
-        #menu-wrapper .menu ul#menu-primary-items li.menu-item-has-children > a {
-          padding-right: 2.2em; }
       #menu-wrapper .menu ul#menu-primary-items li ul {
         position: static;
         padding-left: 0.85em;
@@ -1332,7 +1332,7 @@ form input {
           #menu-wrapper .menu ul#menu-primary-items li ul li:first-child a {
             border-top: none; }
       #menu-wrapper .menu ul#menu-primary-items > li {
-        float: none;
+        display: block;
         border-top: dotted 1px #CCC; }
         #menu-wrapper .menu ul#menu-primary-items > li > a {
           color: #555 !important;
@@ -1396,7 +1396,7 @@ form input {
     .single #content #nav-below .nav-previous {
       display: block;
       margin-top: 0.85em;
-      text-align: start; }
+      text-align: left; }
     .single #content #nav-below .nav-next {
       display: block; }
   #footer {
@@ -1410,7 +1410,6 @@ form input {
   .archive #content ul li em,
   .error404 #content ul li em {
     display: block;
-    text-align: start;
     margin-left: 0.6em;
     font-size: 0.86em; } }
 
