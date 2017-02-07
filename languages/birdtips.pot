@@ -1,14 +1,14 @@
-# Translation of the WordPress theme BirdTIPS 1.08 by Sysbird
+# Translation of the WordPress theme BirdTIPS 1.09 by Sysbird
 # Copyright (C) Sysbird
 # This file is distributed under the same license as the BirdTIPS package.
 # FIRST AUTHOR <sysbird@gmail.com>, 2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: BirdTIPS 1.08\n"
+"Project-Id-Version: BirdTIPS 1.09\n"
 "Report-Msgid-Bugs-To: http://www.sysbird.jp\n"
 "POT-Creation-Date: 2012-10-19 00:00+0200\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Sysbird <sysbird@gmail.com>\n"
 "Language-Team: sysbird <sysbird@gmail.com>\n"
 "MIME-Version: 1.0\n"

@@ -13,7 +13,7 @@
 		<header class="entry-header">
 			<h1 class="entry-title"><?php the_title(); ?></h1>
 			<?php if( is_single() ): // Only Display for Single ?>
-				<time class="postdate" datetime="<?php echo get_the_time('Y-m-d') ?>" pubdate><?php birdtips_the_date(); ?></time>
+				<?php birdtips_the_date(); ?>
 			<?php endif; ?>
 		</header>
 
@@ -56,14 +56,14 @@
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
 			<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'birdtips' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-			<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'birdtips' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><time class="postdate" datetime="<?php echo get_the_time('Y-m-d') ?>" pubdate><?php birdtips_the_date(); ?></time></a>
+			<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'birdtips' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php birdtips_the_date(); ?></a>
 		</header>
 
 		<div class="entry-content">
 			<?php if(has_post_thumbnail()): ?>
 				<a href="<?php the_permalink(); ?>" class="thumbnail"><?php the_post_thumbnail('medium'); ?></a>
 			<?php endif; ?>
-			<?php the_content( __( 'Continue reading', 'birdtips' ) ); ?>
+			<?php the_content( __( '...Continue reading', 'birdtips' ) ); ?>
 			<?php wp_link_pages( array(
 				'before'		=> '<div class="page-link">' . __( 'Pages:', 'birdtips' ),
 				'after'			=> '</div>',

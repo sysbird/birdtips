@@ -15,25 +15,28 @@ if ( ! isset( $content_width ) )
 // Set Widgets
 function birdtips_widgets_init() {
 
-	register_sidebar( array (
-		'name'			=> __( 'Widget Area for left sidebar', 'birdtips' ),
-		'id'			=> 'widget-area-left',
-		'description'	=> __( 'Widget Area for left sidebar', 'birdtips' ),
-		'before_widget'	=> '<div class="widget">',
-		'after_widget'	=> '</div>',
-		'before_title'	=> '<h3>',
-		'after_title'	=> '</h3>',
-		) );
+	if ( function_exists( 'register_sidebar' ) ){
 
-	register_sidebar( array (
-		'name'			=> __( 'Widget Area for right sidebar', 'birdtips' ),
-		'id'			=> 'widget-area-right',
-		'description'	=> __( 'Widget Area for right sidebar', 'birdtips' ),
-		'before_widget'	=> '<div class="widget">',
-		'after_widget'	=> '</div>',
-		'before_title'	=> '<h3>',
-		'after_title'	=> '</h3>',
-		) );
+		register_sidebar( array (
+			'name'			=> __( 'Widget Area for left sidebar', 'birdtips' ),
+			'id'			=> 'widget-area-left',
+			'description'	=> __( 'Widget Area for left sidebar', 'birdtips' ),
+			'before_widget'	=> '<div class="widget">',
+			'after_widget'	=> '</div>',
+			'before_title'	=> '<h3>',
+			'after_title'	=> '</h3>',
+			) );
+
+		register_sidebar( array (
+			'name'			=> __( 'Widget Area for right sidebar', 'birdtips' ),
+			'id'			=> 'widget-area-right',
+			'description'	=> __( 'Widget Area for right sidebar', 'birdtips' ),
+			'before_widget'	=> '<div class="widget">',
+			'after_widget'	=> '</div>',
+			'before_title'	=> '<h3>',
+			'after_title'	=> '</h3>',
+			) );
+	}
 }
 add_action( 'widgets_init', 'birdtips_widgets_init' );
 
@@ -66,12 +69,16 @@ function birdtips_get_copyright_year() {
 // Date
 function birdtips_the_date() {
 
-	$birdtips_html = '';
+	$birdtips_dateshape = get_theme_mod( 'birdtips_dateshape', '' );
+
+	$birdtips_html = '<time class="postdate ' .$birdtips_dateshape .'" datetime="' .get_the_time('Y-m-d') .'" pubdate>';
 	$birdtips_posted = date( __( 'M. j, Y', 'birdtips' ),  strtotime( get_the_time( "Y-m-d") ) );
 	$birdtips_date = explode( ' ', $birdtips_posted );
 	foreach( $birdtips_date as $birdtips_d ){
 		$birdtips_html .= '<span>' .$birdtips_d .'</span>';
 	}
+
+	$birdtips_html .= '</time>';
 
 	echo $birdtips_html;
 }
@@ -158,7 +165,7 @@ function birdtips_scripts() {
 	wp_enqueue_script( 'birdtips-html5', get_template_directory_uri() . '/js/html5shiv.js', array(), '3.7.2' );
 	wp_script_add_data( 'birdtips-html5', 'conditional', 'lt IE 9' );
 
-	if ( is_singular() && comments_open() && get_option('thread_comments' ) ) {
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
@@ -177,7 +184,7 @@ add_action( 'wp_enqueue_scripts', 'birdtips_scripts' );
 function birdtips_excerpt_more() {
 	global $post;
 
-	return ' <a href="'. esc_url( get_permalink() ) . '" class="more-link">' . __( 'Continue reading', 'birdtips' ) .'</a>';
+	return ' <a href="'. esc_url( get_permalink() ) . '" class="more-link">' . __( '...Continue reading', 'birdtips' ) .'</a>';
 }
 add_filter('excerpt_more', 'birdtips_excerpt_more' );
 
@@ -239,9 +246,9 @@ function birdtips_customize($wp_customize) {
 		'settings'	=> 'birdtips_navigation_color',
 	) ) );
 
-	// Footer Section
+	// Layout Section
 	$wp_customize->add_section( 'birdtips_footer', array(
-		'title'		=> __( 'Footer', 'birdtips' ),
+		'title'		=> __( 'Layout', 'birdtips' ),
 		'priority'	=> 999,
 	) );
 
@@ -252,7 +259,7 @@ function birdtips_customize($wp_customize) {
 	) );
 
 	$wp_customize->add_control( 'birdtips_copyright', array(
-		'label'		=> __( 'Display Copyright', 'birdtips' ),
+		'label'		=> __( 'Display Footer Copyright', 'birdtips' ),
 		'section'	=> 'birdtips_footer',
 		'type'		=> 'checkbox',
 		'settings'	=> 'birdtips_copyright',
@@ -265,11 +272,29 @@ function birdtips_customize($wp_customize) {
 	) );
 
 	$wp_customize->add_control( 'birdtips_credit', array(
-		'label'		=> __( 'Display Credit', 'birdtips' ),
+		'label'		=> __( 'Display Footer Credit', 'birdtips' ),
 		'section'	=> 'birdtips_footer',
 		'type'		=> 'checkbox',
 		'settings'	=> 'birdtips_credit',
 	) );
+
+	// Date Shape
+	$wp_customize->add_setting( 'birdtips_dateshape', array(
+		'default'		=> 'rectangle',
+		'sanitize_callback'	=> 'birdtips_sanitize_dateshape',
+	) );
+
+	$wp_customize->add_control( 'birdtips_sanitize_dateshape', array(
+		'label'		=> __( 'Postdate Shape in article', 'birdtips' ),
+		'section'	=> 'birdtips_footer',
+		'type'		=> 'radio',
+		'settings'	=> 'birdtips_dateshape',
+		'choices'	=> array(
+					'rectangle'	=> __( 'rectangle', 'birdtips' ),
+					'circle'	=> __( 'circle', 'birdtips' ),
+					)
+	) );
+
 }
 add_action('customize_register', 'birdtips_customize');
 
@@ -281,6 +306,17 @@ function birdtips_sanitize_checkbox( $input ) {
 		return true;
 	} else {
 		return false;
+	}
+}
+
+//////////////////////////////////////////////////////
+// Santize a radiobutton
+function birdtips_sanitize_dateshape( $input ) {
+
+	if ( $input === 'circle' ) {
+		return $input;
+	} else {
+		return 'rectangle';
 	}
 }
 
@@ -324,14 +360,15 @@ function birdtips_color_css() {
 			/* Custom Link Color */
 			a,
 			#content .hentry.sticky .entry-header .entry-title a,
-			#content .tablenav a,
+			#content .pagination a,
+			#content .pagination span,
 			#content .hentry .page-link,
 			#content .hentry .page-link a span {
 				color: {$birdtips_link_color};
 			}
 
 			#content .hentry.sticky .entry-header .postdate,
-			#content .tablenav .current,
+			#content .pagination span.current,
 			#content .hentry .page-link span,
 			.widget #wp-calendar tbody td a {
 				background: {$birdtips_link_color};
@@ -340,8 +377,8 @@ function birdtips_color_css() {
 			#content a,
 			#content a:hover,
 			#content .hentry .page-link span,
-			#content .tablenav a,
-			#content .tablenav .current {
+			#content .pagination a,
+			#content .pagination span {
 				border-color: {$birdtips_link_color};
 			}
 

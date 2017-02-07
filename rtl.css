@@ -27,6 +27,9 @@ body {
   left: auto;
   right: 75px; }
 
+#header.no-image #branding {
+  margin: 0 75px 2em 0; }
+
 /* Menu
 -------------------------------------------------------------- */
 #menu-wrapper {
@@ -83,6 +86,12 @@ body {
 #content ul, #content ol {
   margin: 0 11m 1.6em 0;
   padding: 0 1em 0 0; }
+
+#content a.more-link::after {
+  content: "\f060";
+  padding-left: 0;
+  padding-right: 0.4em; }
+
 
 /* Pagenation
 -------------------------------------------------------------------- */
@@ -157,12 +166,17 @@ body {
 /* Sidebars
 --------------------------------------------- */
 .widget ul li {
+  padding-left: 0;
   padding-right: 0.66em; }
 
 .widget ul li:before {
   content: "\f0d9";
   padding-left: 0.2em;
   padding-right: 0; }
+
+.widget ul li ul {
+  padding-left: 0;
+  padding-right: 0.5em; }
 
 .widget #wp-calendar tfoot #next {
   text-align: left; }

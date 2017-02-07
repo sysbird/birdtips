@@ -1,8 +1,7 @@
-@charset "UTF-8";
 /*
 Theme Name: BirdTIPS
 Theme URI: http://www.sysbird.jp/birdtips/theme/
-Description: BirdTIPS is a flexible three-column blog theme. The theme uses CSS3 media queries for its responsive layout and is therefore optimized for tablet pcs and smart phones. Features include the page navigation. You can also choose the text color, link color, article title color and navigation menu color by theme options.
+Description: BirdTIPS is a flexible three-column blog theme. Its responsive layout and is therefore optimized for tablet pcs and smart phones.  You can also choose the text color, link color, article title color and navigation menu color on the Theme Customize.
 Author: Sysbird
 Author URI: http://www.sysbird.jp
 Version: 1.09
@@ -221,30 +220,28 @@ body {
           #menu-wrapper .menu ul#menu-primary-items li ul li:first-child a {
             border-top: solid 1px #CCC; }
           #menu-wrapper .menu ul#menu-primary-items li ul li.menu-item-has-children > a:after {
-            content: "";
             display: inline-block;
             font-family: FontAwesome;
             font-style: normal;
             font-weight: normal;
             line-height: 1;
-            padding-left: 5px;
-            padding-right: 0;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale; }
+            -moz-osx-font-smoothing: grayscale;
+            padding-left: 5px;
+            content: "\f0da"; }
           #menu-wrapper .menu ul#menu-primary-items li ul li ul {
             top: 0;
             left: 100%; }
       #menu-wrapper .menu ul#menu-primary-items li.menu-item-has-children > a:after {
-        content: "";
         display: inline-block;
         font-family: FontAwesome;
         font-style: normal;
         font-weight: normal;
         line-height: 1;
-        padding-left: 5px;
-        padding-right: 0;
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale; }
+        -moz-osx-font-smoothing: grayscale;
+        padding-left: 5px;
+        content: "\f0da"; }
     #menu-wrapper .menu ul#menu-primary-items > li {
       display: inline-block; }
       #menu-wrapper .menu ul#menu-primary-items > li > a {
@@ -259,16 +256,15 @@ body {
         border: none;
         padding-left: 0; }
       #menu-wrapper .menu ul#menu-primary-items > li.menu-item-has-children > a:after {
-        content: "";
         display: inline-block;
         font-family: FontAwesome;
         font-style: normal;
         font-weight: normal;
         line-height: 1;
-        padding-left: 5px;
-        padding-right: 0;
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale; }
+        -moz-osx-font-smoothing: grayscale;
+        padding-left: 5px;
+        content: "\f0d7"; }
     #menu-wrapper .menu ul#menu-primary-items li[class*="current-menu"] > a {
       font-weight: bold; }
 
@@ -293,63 +289,26 @@ body {
     #content .hentry .entry-meta span {
       padding: 0 0.425em;
       display: inline-block; }
+      #content .hentry .entry-meta span:before {
+        display: inline-block;
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale; }
     #content .hentry .entry-meta a {
       padding: 0 0.425em; }
     #content .hentry .entry-meta .postdate:before {
-      content: "";
-      display: inline-block;
-      font-family: FontAwesome;
-      font-style: normal;
-      font-weight: normal;
-      line-height: 1;
-      padding-left: 0;
-      padding-right: 0.2em;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale; }
+      content: "\f133"; }
     #content .hentry .entry-meta .author:before {
-      content: "";
-      display: inline-block;
-      font-family: FontAwesome;
-      font-style: normal;
-      font-weight: normal;
-      line-height: 1;
-      padding-left: 0;
-      padding-right: 0.2em;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale; }
+      content: "\f007"; }
     #content .hentry .entry-meta .category:before {
-      content: "";
-      display: inline-block;
-      font-family: FontAwesome;
-      font-style: normal;
-      font-weight: normal;
-      line-height: 1;
-      padding-left: 0;
-      padding-right: 0.2em;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale; }
+      content: "\f07b"; }
     #content .hentry .entry-meta .tag:before {
-      content: "";
-      display: inline-block;
-      font-family: FontAwesome;
-      font-style: normal;
-      font-weight: normal;
-      line-height: 1;
-      padding-left: 0;
-      padding-right: 0.2em;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale; }
+      content: "\f02c"; }
     #content .hentry .entry-meta .comment:before {
-      content: "";
-      display: inline-block;
-      font-family: FontAwesome;
-      font-style: normal;
-      font-weight: normal;
-      line-height: 1;
-      padding-left: 0;
-      padding-right: 0.2em;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale; }
+      content: "\f075"; }
   #content .hentry .entry-header {
     position: relative;
     margin: 0;
@@ -417,17 +376,18 @@ body {
   #content a:hover {
     text-decoration: none;
     border-bottom: solid 1px #06A; }
-  #content a.more-link:before {
-    content: "";
-    display: inline-block;
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    padding-left: 0;
-    padding-right: 0.425em;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; }
+  #content a.more-link {
+    display: inline-block; }
+    #content a.more-link:after {
+      display: inline-block;
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-left: 0.425em;
+      content: "\f061"; }
 
 #content a.thumbnail {
   display: block;
@@ -656,27 +616,25 @@ body {
     color: #FFF;
     background: #06A; }
   #content .pagination a.page-numbers.prev:before {
-    content: "";
     display: inline-block;
     font-family: FontAwesome;
     font-style: normal;
     font-weight: normal;
     line-height: 1;
-    padding-left: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     padding-right: 0.4em;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; }
+    content: "\f060"; }
   #content .pagination a.page-numbers.next:after {
-    content: "";
     display: inline-block;
     font-family: FontAwesome;
     font-style: normal;
     font-weight: normal;
     line-height: 1;
-    padding-left: 0.4em;
-    padding-right: 0;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; }
+    -moz-osx-font-smoothing: grayscale;
+    padding-left: 0.4em;
+    content: "\f061"; }
 
 /* Accessibility
 -------------------------------------------------------------- */
@@ -878,16 +836,15 @@ video {
         margin-bottom: 1.7em; }
         #content #comments ol.commentlist li.pingback .reply a.comment-reply-link:before,
         #content #comments ol.commentlist li.comment .reply a.comment-reply-link:before {
-          content: "";
           display: inline-block;
           font-family: FontAwesome;
           font-style: normal;
           font-weight: normal;
           line-height: 1;
-          padding-left: 0;
-          padding-right: 0.2em;
           -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale; }
+          -moz-osx-font-smoothing: grayscale;
+          padding-right: 0.2em;
+          content: "\f0da"; }
 
 /* Forms
 -------------------------------------------------------------- */
@@ -955,16 +912,14 @@ form input {
     -webkit-appearance: button; }
     #searchform #searchsubmit:before {
       font-size: 1.4rem;
-      content: "";
       display: inline-block;
       font-family: FontAwesome;
       font-style: normal;
       font-weight: normal;
       line-height: 1;
-      padding-left: 0;
-      padding-right: 0;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale; }
+      -moz-osx-font-smoothing: grayscale;
+      content: "\f002"; }
 
 /* Archive
 -------------------------------------------------------------------- */
@@ -997,16 +952,15 @@ form input {
       flex: 2; }
       .archive #content ul li span:before,
       .error404 #content ul li span:before {
-        content: "";
         display: inline-block;
         font-family: FontAwesome;
         font-style: normal;
         font-weight: normal;
         line-height: 1;
-        padding-left: 0;
-        padding-right: 0.2em;
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale; }
+        -moz-osx-font-smoothing: grayscale;
+        padding-right: 0.2em;
+        content: "\f0da"; }
     .archive #content ul li em,
     .error404 #content ul li em {
       flex: 1;
@@ -1029,29 +983,27 @@ form input {
     flex: 1;
     text-align: right; }
     .single #content #nav-below .nav-previous a:after {
-      content: "";
       display: inline-block;
       font-family: FontAwesome;
       font-style: normal;
       font-weight: normal;
       line-height: 1;
-      padding-left: 0.4em;
-      padding-right: 0;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale; }
+      -moz-osx-font-smoothing: grayscale;
+      padding-left: 0.4em;
+      content: "\f061"; }
   .single #content #nav-below .nav-next {
     flex: 1; }
     .single #content #nav-below .nav-next a:before {
-      content: "";
       display: inline-block;
       font-family: FontAwesome;
       font-style: normal;
       font-weight: normal;
       line-height: 1;
-      padding-left: 0;
-      padding-right: 0.4em;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale; }
+      -moz-osx-font-smoothing: grayscale;
+      padding-right: 0.4em;
+      content: "\f060"; }
 
 /* Attachment
 -------------------------------------------------------------------- */
@@ -1095,16 +1047,15 @@ form input {
       .widget ul li a {
         color: #555; }
       .widget ul li:before {
-        content: "";
         display: inline-block;
         font-family: FontAwesome;
         font-style: normal;
         font-weight: normal;
         line-height: 1;
-        padding-left: 0;
-        padding-right: 0.2em;
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale; }
+        -moz-osx-font-smoothing: grayscale;
+        padding-right: 0.2em;
+        content: "\f0da"; }
       .widget ul li ul {
         padding: 0.5em 0 0 0.5em; }
   .widget table {
@@ -1157,17 +1108,17 @@ form input {
     #footer .site-title .generator {
       font-family: Georgia, "Bitstream Charter", serif;
       font-style: italic; }
-      #footer .site-title .generator a:before {
-        content: "";
+      #footer .site-title .generator a:after {
         display: inline-block;
         font-family: FontAwesome;
         font-style: normal;
         font-weight: normal;
         line-height: 1;
-        padding-left: 0.2em;
-        padding-right: 0.2em;
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale; }
+        -moz-osx-font-smoothing: grayscale;
+        padding-left: 0.4em;
+        padding-right: 0.2em;
+        content: "\f19a"; }
   #footer #back-top {
     position: fixed;
     bottom: 10px;
@@ -1191,16 +1142,14 @@ form input {
         filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
         opacity: 0.8; }
       #footer #back-top a:before {
-        content: "";
         display: inline-block;
         font-family: FontAwesome;
         font-style: normal;
         font-weight: normal;
         line-height: 1;
-        padding-left: 0;
-        padding-right: 0;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        content: "\f0aa";
         font-size: 60px;
         display: block; }
 
@@ -1286,16 +1235,14 @@ form input {
       color: #DDD;
       float: right; }
       #menu-wrapper .menu #small-menu:after {
-        content: "";
         display: inline-block;
         font-family: FontAwesome;
         font-style: normal;
         font-weight: normal;
         line-height: 1;
-        padding-left: 0;
-        padding-right: 0;
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale; }
+        -moz-osx-font-smoothing: grayscale;
+        content: "\f0c9"; }
     #menu-wrapper .menu ul#menu-primary-items {
       clear: both;
       position: absolute;
@@ -1319,16 +1266,7 @@ form input {
             #menu-wrapper .menu ul#menu-primary-items li ul li a:hover {
               background: none; }
           #menu-wrapper .menu ul#menu-primary-items li ul li.menu-item-has-children > a:after {
-            content: "";
-            display: inline-block;
-            font-family: FontAwesome;
-            font-style: normal;
-            font-weight: normal;
-            line-height: 1;
-            padding-left: 0;
-            padding-right: 0;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale; }
+            content: ""; }
           #menu-wrapper .menu ul#menu-primary-items li ul li:first-child a {
             border-top: none; }
       #menu-wrapper .menu ul#menu-primary-items > li {
@@ -1344,27 +1282,15 @@ form input {
         #menu-wrapper .menu ul#menu-primary-items > li:first-child a {
           padding-left: 0.425em; }
         #menu-wrapper .menu ul#menu-primary-items > li.menu-item-has-children > a:after {
-          content: "";
-          display: inline-block;
-          font-family: FontAwesome;
-          font-style: normal;
-          font-weight: normal;
-          line-height: 1;
-          padding-left: 0;
-          padding-right: 0;
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale; }
+          content: ""; }
       #menu-wrapper .menu ul#menu-primary-items li[class*="current-menu"] > a {
         font-weight: normal; }
     #menu-wrapper.current .menu #small-menu:after {
-      content: "";
       display: inline-block;
       font-family: FontAwesome;
       font-style: normal;
       font-weight: normal;
       line-height: 1;
-      padding-left: 0;
-      padding-right: 0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale; }
   #content .hentry .entry-header {
@@ -1380,6 +1306,8 @@ form input {
       text-align: left;
       background: none !important;
       display: block; }
+      #content .hentry .entry-header .postdate.circle {
+        height: auto; }
       #content .hentry .entry-header .postdate span {
         display: inline;
         padding-right: 5px; }

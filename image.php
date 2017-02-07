@@ -16,7 +16,7 @@ get_header(); ?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<header class="entry-header">
 				<h1 class="entry-title"><?php the_title(); ?></h1>
-				<time class="postdate" datetime="<?php echo get_the_time('Y-m-d') ?>" pubdate><?php birdtips_the_date(); ?></time>
+				<?php birdtips_the_date(); ?>
 			</header>
 
 			<div class="entry-content">
@@ -67,8 +67,8 @@ else
 		</article>
 
 		<nav id="nav-below">
-			<span class="nav-previous"><?php next_image_link( false, __( 'Next Image' , 'birdtips' ) ); ?></span>
 			<span class="nav-next"><?php previous_image_link( false, __( 'Previous Image' , 'birdtips' ) ); ?></span>
+			<span class="nav-previous"><?php next_image_link( false, __( 'Next Image' , 'birdtips' ) ); ?></span>
 		</nav>
 
 		<?php comments_template(); ?>

@@ -1,5 +1,5 @@
 == Description ==
-BirdTIPS is a flexible three-column blog theme. The theme uses CSS3 media queries for its responsive layout and is therefore optimized for tablet pcs and smart phones. Features include the page navigation. You can also choose the link color, article title color and navigation menu color by theme options.
+BirdTIPS is a flexible three-column blog theme. Its responsive layout and is therefore optimized for tablet pcs and smart phones.  You can also choose the text color, link color, article title color and navigation menu color on the Theme Customize.
 
 
 === Tags ===
@@ -7,7 +7,7 @@ white, three-columns, right-sidebar, flexible-width, custom-background, custom-c
 
 
 === Features ===
-Responsive Layout, Theme Customize, Page Navigation
+Responsive Layout, Theme Customize
 
 
 === Widgets Areas ===
@@ -27,14 +27,19 @@ Header Images are photo by theme author and are released under GPL license.
 
 
 == Author ==
-The theme built by TORIYAMA Yuko at sysbird.
+The theme built by TORIYAMA Yuko at Sysbird.
 http://www.sysbird.jp
+You can contact me at inquiry form.
+http://www.sysbird.jp/wptips/contact/
 
 
 == Changelog ==
 v1.09
-# 2016-09-20 Working!!
-* Use the Flexbox for column lauout.
+2017-02-11
+* fix WordPress Version 4.7.
+* support the theme tag rtl-language-support.
+* use the Flexbox for column lauout.
+* add theme option Postdate Shape in article.
 
 v1.08
 2015-07-06
