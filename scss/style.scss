@@ -96,28 +96,32 @@ body {
 	margin:0 0 0;
 	padding:25px 25px 25px 75px;
 	padding: #{$line-height}em #{$line-height}em #{$line-height}em 75px;
-	display: -webkit-flex;
-	display: flex;
+	@include display-flex();
 }
 
 #main {
 	flex: 4;
-	display: -webkit-flex;
-	display: flex;
+	@include display-flex();
 }
 
 #content {
 	flex: 3;
+	min-width: 0;
+	word-break:break-all;
 }
 
 #leftcolumn {
 	flex: 1;
 	padding-left: 3%;
 	padding-right: 3%;
+	min-width: 0;
+	word-break:break-all;
 }
 
 #rightcolumn {
 	flex: 1;
+	min-width: 0;
+	word-break:break-all;
 }
 
 #footer {
@@ -1149,8 +1153,7 @@ form {
 			color: $text_color;
 			border: none;
 			padding: 0.5em 0;
-			display: -webkit-flex;
-			display: flex;
+			@include display-flex();
 
 			&:hover {
 				background: $background_color;
@@ -1196,8 +1199,7 @@ form {
 .single {
 
 	#content #nav-below {
-		display: -webkit-flex;
-		display: flex;
+		@include display-flex();
 
 		.nav-previous {
 			flex: 1;

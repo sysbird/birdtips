@@ -120,15 +120,21 @@ body {
   display: flex; }
 
 #content {
-  flex: 3; }
+  flex: 3;
+  min-width: 0;
+  word-break: break-all; }
 
 #leftcolumn {
   flex: 1;
   padding-left: 3%;
-  padding-right: 3%; }
+  padding-right: 3%;
+  min-width: 0;
+  word-break: break-all; }
 
 #rightcolumn {
-  flex: 1; }
+  flex: 1;
+  min-width: 0;
+  word-break: break-all; }
 
 #footer {
   clear: both;
