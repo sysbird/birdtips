@@ -560,7 +560,7 @@ body {
   background: #ffc;
   text-decoration: none; }
 
-.home #content .hentry.sticky .entry-header .entry-title
+.home #content .hentry.sticky .entry-header .entry-title,
 .home #content .hentry.sticky .entry-header .entry-title a {
   color: #06A; }
 
