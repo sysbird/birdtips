@@ -35,8 +35,8 @@ http://www.sysbird.jp/wptips/contact/
 
 == Changelog ==
 v1.09
-2017-02-11
-* fix WordPress Version 4.7.
+2017-06-15
+* fix WordPress Version 4.8.
 * support the theme tag rtl-language-support.
 * use the Flexbox for column lauout.
 * add theme option Postdate Shape in article.
