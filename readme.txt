@@ -3,8 +3,7 @@ BirdTIPS is a flexible three-column blog theme. Its responsive layout and is the
 
 
 === Tags ===
-white, three-columns, right-sidebar, flexible-width, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-image-header, featured-images, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
-
+three-columns, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-image-header, featured-images, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog
 
 === Features ===
 Responsive Layout, Theme Customize
