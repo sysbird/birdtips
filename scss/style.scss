@@ -101,6 +101,7 @@ body {
 
 #main {
 	flex: 4;
+	min-width: 0;
 	@include display-flex();
 }
 
@@ -1685,6 +1686,8 @@ form {
 
 				&.circle {
 					height: auto;
+					width: 100%;
+					text-align: left;
 				}
 
 				span {

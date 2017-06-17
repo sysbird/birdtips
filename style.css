@@ -68,7 +68,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   src: url("font-awesome/fontawesome-webfont.eot?#iefix&v=4.1.0") format("embedded-opentype"), url("font-awesome/fontawesome-webfont.woff?v=4.1.0") format("woff"), url("font-awesome/fontawesome-webfont.ttf?v=4.1.0") format("truetype"), url("font-awesome/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 /* Link
 --------------------------------------------- */
 a {
@@ -116,6 +115,7 @@ body {
 
 #main {
   flex: 4;
+  min-width: 0;
   display: -webkit-flex;
   display: flex; }
 
@@ -147,7 +147,6 @@ body {
   width: 100%;
   height: auto;
   vertical-align: bottom; }
-
 #header #branding {
   position: absolute;
   left: 75px;
@@ -164,17 +163,14 @@ body {
       text-decoration: none; }
   #header #branding #site-description {
     margin: 3px 0; }
-
 #header.no-title {
   padding-top: 2em; }
   #header.no-title #branding {
     position: absolute !important;
     clip: rect(1px, 1px, 1px, 1px); }
-
 #header.no-image #branding {
   position: static;
   margin: 0 0 2em 75px; }
-
 #header.no-image #menu-wrapper {
   position: relative; }
 
@@ -376,7 +372,6 @@ body {
       background: #FFF; }
       #content .hentry .page-link a span:hover {
         background: #F5F5F5; }
-
 #content a {
   border-bottom: dotted 1px #06A; }
   #content a:hover {
@@ -394,7 +389,6 @@ body {
       -moz-osx-font-smoothing: grayscale;
       padding-left: 0.425em;
       content: "\f061"; }
-
 #content a.thumbnail {
   display: block;
   border-bottom: none;
@@ -402,42 +396,31 @@ body {
   float: right; }
   #content a.thumbnail img.wp-post-image {
     max-width: 300px; }
-
 #content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
   margin: 0.7em 0;
   line-height: 1.2;
   font-weight: normal; }
-
 #content h1 {
   font-size: 2.4rem; }
-
 #content h2 {
   font-size: 2rem; }
-
 #content h3 {
   font-size: 1.8rem; }
-
 #content h4 {
   font-size: 1.6rem; }
-
 #content h5 {
   font-size: 1.4rem; }
-
 #content h6 {
   font-size: 1.2rem; }
-
 #content h2 {
   border-bottom: dashed 1px #CCC;
   padding-bottom: 0.425em; }
-
 #content h3 {
   border-left: solid 7px #CCC;
   padding-left: 10px; }
-
 #content p {
   line-height: 1.7;
   margin: 0 0 1.7em; }
-
 #content blockquote {
   margin-left: 1em;
   padding-left: 1em;
@@ -453,7 +436,6 @@ body {
   #content blockquote cite {
     color: #999;
     display: block; }
-
 #content table {
   max-width: 100%;
   border-collapse: collapse;
@@ -469,7 +451,6 @@ body {
     text-align: center;
     font-weight: bold;
     background: #F5F5F5; }
-
 #content pre {
   border: dashed 1px #CCC;
   padding: 0.85em;
@@ -478,42 +459,32 @@ body {
   line-height: 1.4;
   white-space: pre-wrap;
   word-wrap: break-word; }
-
 #content code {
   background: #F5F5F5; }
-
 #content code, #content kbd, #content pre, #content samp {
   font-family: monospace,serif; }
-
 #content hr {
   background-color: #CCC;
   border: 0 none;
   height: 1px;
   margin-bottom: 1.7em; }
-
 #content sup, #content sub {
   font-size: 0.85em;
   height: 0;
   line-height: 0;
   position: relative;
   vertical-align: baseline; }
-
 #content sub {
   top: 0.5ex; }
-
 #content sup {
   bottom: 1ex; }
-
 #content em {
   font-style: italic; }
-
 #content strong {
   font-weight: bold; }
-
 #content abbr, #content acronym {
   border-bottom: 1px dotted #666;
   cursor: help; }
-
 #content ul,
 #content ol {
   margin: 0 0 1.7em 1em;
@@ -527,14 +498,12 @@ body {
   #content ol ul,
   #content ol ol {
     margin-bottom: 0; }
-
 #content ul {
   list-style: disc; }
   #content ul ul {
     list-style: circle; }
     #content ul ul ul {
       list-style: square; }
-
 #content ol {
   list-style: decimal; }
   #content ol ol {
@@ -543,7 +512,6 @@ body {
       list-style: lower-roman; }
       #content ol ol ol ol {
         list-style: lower-alpha; }
-
 #content dl {
   margin: 0 0 1em 0;
   line-height: 1.7; }
@@ -552,10 +520,8 @@ body {
   #content dl dd {
     margin: 0 1.5em 1.7em;
     padding: 0; }
-
 #content del {
   color: #C00; }
-
 #content ins {
   background: #ffc;
   text-decoration: none; }
@@ -566,11 +532,9 @@ body {
 
 .attachment.single #main {
   width: 100%; }
-
 .attachment.single #content {
   width: 98%;
   float: none; }
-
 .attachment.single #content .entry-content .attachment {
   text-align: center; }
 
@@ -713,7 +677,6 @@ a:hover img {
   color: #999;
   max-width: 100%;
   text-align: center; }
-
 #content .hentry .wp-caption {
   padding: 5px;
   margin-bottom: 1.7em;
@@ -728,10 +691,8 @@ a:hover img {
     line-height: 1; }
   #content .hentry .wp-caption a {
     border: none; }
-
 #content .hentry .gallery-caption {
   margin: 5px 0 0 0; }
-
 #content .hentry .gallery {
   margin: 0 auto;
   clear: both; }
@@ -1018,7 +979,6 @@ form input {
   margin-bottom: 1.7em; }
   .attachment #content .hentry .entry-attachment .wp-caption {
     background: none; }
-
 .attachment #content .hentry .attachment a {
   border: none; }
 
@@ -1142,6 +1102,7 @@ form input {
         text-indent: -119988px;
         overflow: hidden;
         text-align: left;
+        text-transform: capitalize;
         display: block; }
       #footer #back-top a:hover {
         text-decoration: none;
@@ -1166,12 +1127,16 @@ form input {
   /* --- General --- */
   #container {
     margin: 0 auto; }
+
   #wrapper {
     overflow: hidden; }
+
   #wrapper {
     display: block; }
+
   #content {
     padding-right: 0; }
+
   /* --- Sidebars --- */
   #leftcolumn {
     padding-right: 0; }
@@ -1184,36 +1149,42 @@ form input {
           color: #999; }
       #leftcolumn .widget ul li ul li {
         border-top: none; }
+
   #rightcolumn {
     padding-top: 3.4em; } }
-
 /* --- iPad Portrait --- */
 @media screen and (max-width: 800px) {
   #header #branding #site-title {
     padding: 5px 0 0; }
   #header #branding #site-description {
     display: none; }
+
   #main {
     display: block; }
+
   /* --- Sidebars --- */
   #leftcolumn {
     padding-left: 0;
     padding-top: 3.4em; }
+
   #leftcolumn aside:last-child {
     margin-bottom: 30px;
     border-bottom: 1px solid #CCC; }
+
   #rightcolumn {
     padding-top: 0; }
+
   #rightcolumn aside:last-child {
     margin-bottom: 0;
     border-bottom: none; } }
-
 /* --- Smartphones and small Tablet PCs --- */
 @media screen and (max-width: 650px) {
   body {
     font-size: 1.04rem; }
+
   #wrapper {
     padding: 10px; }
+
   #header #branding {
     left: 0;
     padding: 0 10px; }
@@ -1228,6 +1199,7 @@ form input {
     padding-top: 0; }
     #header.no-menu #branding {
       top: 0; }
+
   /* small menu */
   #menu-wrapper {
     bottom: 0;
@@ -1299,6 +1271,7 @@ form input {
       line-height: 1;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale; }
+
   #content .hentry .entry-header {
     position: static; }
     #content .hentry .entry-header .entry-title {
@@ -1313,7 +1286,9 @@ form input {
       background: none !important;
       display: block; }
       #content .hentry .entry-header .postdate.circle {
-        height: auto; }
+        height: auto;
+        width: 100%;
+        text-align: left; }
       #content .hentry .entry-header .postdate span {
         display: inline;
         padding-right: 5px; }
@@ -1325,6 +1300,7 @@ form input {
     text-align: center; }
     #content .hentry a.thumbnail img.wp-post-image {
       max-width: 100%; }
+
   .single #content #nav-below {
     display: block; }
     .single #content #nav-below .nav-previous {
@@ -1333,8 +1309,10 @@ form input {
       text-align: left; }
     .single #content #nav-below .nav-next {
       display: block; }
+
   #footer {
     padding-left: 10px; }
+
   .archive #content ul li a,
   .error404 #content ul li a {
     display: block; }
@@ -1346,7 +1324,6 @@ form input {
     display: block;
     margin-left: 0.6em;
     font-size: 0.86em; } }
-
 @media screen and (min-width: 650px) {
   ul#menu-primary-items {
     /* ensure .menu is visible on desktop version */

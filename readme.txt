@@ -35,7 +35,7 @@ http://www.sysbird.jp/wptips/contact/
 
 == Changelog ==
 v1.09
-2017-06-15
+2017-06-17
 * fix WordPress Version 4.8.
 * support the theme tag rtl-language-support.
 * use the Flexbox for column lauout.

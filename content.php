@@ -61,7 +61,7 @@
 
 		<div class="entry-content">
 			<?php if(has_post_thumbnail()): ?>
-				<a href="<?php the_permalink(); ?>" class="thumbnail"><?php the_post_thumbnail('medium'); ?></a>
+				<a href="<?php the_permalink(); ?>" class="thumbnail"><?php the_post_thumbnail('large'); ?></a>
 			<?php endif; ?>
 			<?php the_content( __( '...Continue reading', 'birdtips' ) ); ?>
 			<?php wp_link_pages( array(
