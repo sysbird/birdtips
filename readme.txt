@@ -10,9 +10,22 @@ Responsive Layout, Theme Customize
 
 
 === Widgets Areas ===
-The Theme has 2 customizable sidebars.
+The Theme has two customizable sidebars.
 You can use these area to customize the content of your website.
 If no content is be added to the sidebars these will display search box and category list, monthly archives, meta.
+
+=== Theme Customize ===
+Colors section
+Background Color: for background.
+Text Color: for text color.
+Link Color: for link color.
+Header Background Color: for background on header and footer widget. and copyright text color on footer.
+Header Text Color: for header and navigation text color.  and copyright background color on footer.
+
+Layout section
+Display Copyright: display copyright on footer.
+Display Credit: display credit on footer.
+Postdate Shape in article: rectangle or circle.
 
 
 == License ==
@@ -24,6 +37,19 @@ The script html5.js and css3-mediaqueries.js are licensed under MIT
 The iconfont Font Awesome is released under the GPL license.
 Header Images are photo by theme author and are released under GPL license.
 
+
+== Third-party Resources ==
+html5shiv.js
+License: MIT/GPL2 Licensed
+Source:  https://github.com/aFarkas/html5shiv
+
+Google Fonts
+License: SIL Open Font License, 1.1
+Source:  http://www.google.com/fonts
+
+Font Awesome
+License: SIL Open Font License, 1.1/MIT License
+Source:  http://fortawesome.github.io/Font-Awesome/
 
 == Author ==
 The theme built by TORIYAMA Yuko at Sysbird.
