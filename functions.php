@@ -91,8 +91,12 @@ function birdtips_setup() {
 	// Set languages
 	load_theme_textdomain( 'birdtips', get_template_directory() . '/languages' );
 
+	// Add support for Block Styles.
+	add_theme_support( 'wp-block-styles' );
+
 	// This theme styles the visual editor with editor-style.css to match the theme style.
-	add_editor_style();
+	add_theme_support( 'editor-styles' );
+	add_editor_style( 'editor-style.css' );
 
 	// Set feed
 	add_theme_support( 'automatic-feed-links' );
@@ -162,9 +166,6 @@ add_action( 'after_setup_theme', 'birdtips_setup' );
 // Enqueue Acripts
 function birdtips_scripts() {
 
-	wp_enqueue_script( 'birdtips-html5', get_template_directory_uri() . '/js/html5shiv.js', array(), '3.7.2' );
-	wp_script_add_data( 'birdtips-html5', 'conditional', 'lt IE 9' );
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -172,12 +173,15 @@ function birdtips_scripts() {
 	wp_enqueue_script( 'birdtips', get_template_directory_uri() .'/js/birdtips.js',array( 'jquery' ), '1.09' );
 	wp_enqueue_style( 'birdtips-google-font', '//fonts.googleapis.com/css?family=Lato', false, null, 'all' );
 	wp_enqueue_style( 'birdtips', get_stylesheet_uri() );
-
-	if ( strtoupper( get_locale() ) == 'JA' ) {
-		wp_enqueue_style( 'birdtips_ja', get_template_directory_uri().'/css/ja.css' );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'birdtips_scripts' );
+
+//////////////////////////////////////////////////////
+// Enqueue Scripts for Dashboard
+function birdtips_admin_enqueue_scripts() {
+	wp_enqueue_style( 'birdtips-google-font', '//fonts.googleapis.com/css?family=Lato', false, null, 'all' );
+}
+add_action( 'admin_enqueue_scripts', 'birdtips_admin_enqueue_scripts' );
 
 //////////////////////////////////////////////////////
 // Excerpt More

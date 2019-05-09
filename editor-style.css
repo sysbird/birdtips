@@ -4,7 +4,6 @@ Theme Name: BirdTIPS
 /*
 Used to style the TinyMCE editor.
 */
-html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -24,12 +23,35 @@ time, mark, audio, video {
   font-size: 100%;
   vertical-align: baseline; }
 
-html .mceContentBody {
-	padding: 1em;
-	}
+html {
+  line-height: 1; }
 
-* {
-	font-family: 'Lato', 'Verdana,Arial', 'ÉÅÉCÉäÉI', 'Meiryo' , 'ÉqÉâÉMÉmäpÉSPro W3', 'Hiragino Kaku Gothic Pro', 'ÇlÇr ÇoÉSÉVÉbÉN', 'sans-serif';
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block; }
+
+body {
+  font-family: 'Lato', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial','Hiragino Sans', YuGothic, 'Yu Gothic', Meiryo, 'MS PGothic';
 	color: #333;
 	}
 
@@ -254,3 +276,16 @@ img.aligncenter {
 	margin:0;
 	}
 	
+.editor-post-title__block,
+.editor-post-title__input {
+  font-family: 'Lato', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial','Hiragino Sans', YuGothic, 'Yu Gothic', Meiryo, 'MS PGothic';
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+/* Make sure our non-latin font overrides don't overwrite the iconfont used in the classic editor toolbar */
+.wp-block[data-type="core/freeform"] .mce-btn i {
+  font-family: dashicons !important;
+}
+
+  

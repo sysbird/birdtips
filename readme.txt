@@ -39,10 +39,6 @@ Header Images are photo by theme author and are released under GPL license.
 
 
 == Third-party Resources ==
-html5shiv.js
-License: MIT/GPL2 Licensed
-Source:  https://github.com/aFarkas/html5shiv
-
 Google Fonts
 License: SIL Open Font License, 1.1
 Source:  http://www.google.com/fonts
@@ -59,6 +55,14 @@ http://www.sysbird.jp/wptips/contact/
 
 
 == Changelog ==
+v1.10
+2019-05-13
+* fix WordPress Version 5.2.
+* remove languages files. and theme translation migrated to GlotPress.
+* add support for editor styles on the Block Editor.
+* remove /css/ja.css.
+* remove html5shiv.js.
+
 v1.09
 2017-06-17
 * fix WordPress Version 4.8.
